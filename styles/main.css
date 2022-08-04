@@ -13,19 +13,7 @@
 }
 
 button {
-  font-size: 18px;
-  font-weight: 700;
-  padding: 4px 18px;
-  border: none;
-  border: solid 3px black;
-  border-radius: 500px;
   cursor: pointer;
-}
-button.play {
-  background: #f5c1b7;
-}
-button.pause {
-  background: #a7cceb;
 }
 
 div.goyo-wrap {
@@ -54,10 +42,7 @@ div.goyo-wrap div.goyo-header button.play {
 div.goyo-wrap div.goyo-header button.play.paused {
   background: #7ae5ee;
 }
-div.goyo-wrap div.goyo-header button.only-voice,
-div.goyo-wrap div.goyo-header button.only-accomp,
-div.goyo-wrap div.goyo-header button.both,
-div.goyo-wrap div.goyo-header button.change {
+div.goyo-wrap div.goyo-header button.only-voice, div.goyo-wrap div.goyo-header button.only-accomp, div.goyo-wrap div.goyo-header button.both, div.goyo-wrap div.goyo-header button.change {
   width: auto;
   padding: 4px 16px;
 }
