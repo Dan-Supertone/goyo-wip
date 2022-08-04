@@ -1,3 +1,16 @@
+*
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  list-style: none
+  font-style: normal
+  word-break: keep-all
+  text-decoration: none
+  box-sizing: border-box
+  vertical-align: baseline
+  background-color: transparent
+
 button
   font-size: 18px
   font-weight: 700
@@ -5,7 +18,36 @@ button
   border: none
   border: solid 3px black
   border-radius: 500px
+  cursor: pointer
   &.play
     background: #f5c1b7
   &.pause
     background: #a7cceb
+
+div.goyo-wrap
+  width: 800px
+  height: 400px
+  margin: 0 auto
+  border: solid 3px black
+  div.goyo-header
+    padding: 12px
+    button
+      font-size: 18px
+      font-weight: 700
+      text-align: center
+      display: inline-block
+      padding: 4px 0
+      border: none
+      border: solid 3px black
+      border-radius: 500px
+    button.play
+      width: 86px
+      background: #8bff9c
+      &.paused
+        background: #7ae5ee
+    button.only-voice,
+    button.only-accomp,
+    button.both,
+    button.change
+      width: auto
+      padding: 4px 16px

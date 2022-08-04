@@ -11,7 +11,21 @@
 </head>
 <body>
 
-<button class="play">Play</button>
+
+
+<div class="goyo-wrap">
+  <div class="goyo-header">
+    <button class="play">Play</button>
+    <button class="only-voice">Only Voice</button>
+    <button class="only-accomp">Only Accomp</button>
+    <button class="both">Both</button>
+    <button class="change">Change Audio Source</button>
+  </div>
+</div>
+
+
+
+<!--
 <button class="pause">Pause</button>
 <button class="only-voice">Only Voice</button>
 <button class="only-accomp">Only Accomp</button>
@@ -19,10 +33,10 @@
 <button class="change">Change Audio Source</button>
 
 <h1 class="h1"></h1>
+-->
 
 </body>
 <script>
-// 오디오 생성
 const audioVoiceA = new Audio();
 audioVoiceA.src = "./audio/audio-test-voice.mp3";
 
@@ -35,59 +49,71 @@ audioVoiceB.src = "./audio/audio-2-voice.mp3";
 const audioAccompB = new Audio();
 audioAccompB.src = "./audio/audio-2-accomp.mp3";
 
-// 오디오 세트
 const audioPack = {
   0: [audioVoiceA, audioAccompA],
   1: [audioVoiceB, audioAccompB]
 };
 
-// 오디오 세트 자식 갯수
 const audioCount = Object.keys(audioPack).length - 1;
-
+const buttonPlay = $('button.play');
+let isPlaying = false;
 let nowPlaying = 0;
 $('h1').html(nowPlaying);
 
+//
 
-
-
-
-$('button.play').click( function () {
-  audioPack[nowPlaying][0].play();
-  audioPack[nowPlaying][1].play();
+buttonPlay.click( function () {
+  let $this = $(this);
+  if (isPlaying == false) {
+    play();
+    isPlaying = true;
+    $this.html('Pause');
+    $this.addClass('paused');
+  } else {
+    pause();
+    isPlaying = false;
+    $this.html('Play');
+    $this.removeClass('paused');
+  };
 });
 
-$('button.pause').click( function () {
-  pauseAll();
-});
-
-$('button.only-voice').click( function () {
+$('.only-voice').click( function () {
   audioPack[nowPlaying][0].volume = 1;
   audioPack[nowPlaying][1].volume= 0;
 });
 
-$('button.only-accomp').click( function () {
+$('.only-accomp').click( function () {
   audioPack[nowPlaying][0].volume = 0;
   audioPack[nowPlaying][1].volume = 1;
 });
 
-$('button.both').click( function () {
+$('.both').click( function () {
   audioPack[nowPlaying][0].volume = 1;
   audioPack[nowPlaying][1].volume = 1;
 });
 
-$('button.change').click( function () {
+$('.change').click( function () {
+  pauseAll();
   if (nowPlaying < audioCount) {
-    pauseAll();
     nowPlaying++;
-    $('h1').html(nowPlaying);
+  } else {
+    nowPlaying = 0;
   };
+  $('h1').html(nowPlaying);
 });
 
+//
 
+function play() {
+  audioPack[nowPlaying][0].play();
+  audioPack[nowPlaying][1].play();
+};
 
+function pause() {
+  audioPack[nowPlaying][0].pause();
+  audioPack[nowPlaying][1].pause();
+};
 
-
-// 모든 오디오 정지 & 리셋
 function pauseAll() {
   for (let i in audioPack) {
     audioPack[i][0].pause();
@@ -95,6 +121,9 @@ function pauseAll() {
     audioPack[i][0].currentTime = 0;
     audioPack[i][1].currentTime = 0;
   };
+  isPlaying = false;
+  buttonPlay.html('Play');
+  buttonPlay.removeClass('paused');
 };
 </script>
 </html>
