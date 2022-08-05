@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="./styles/main.css">
 <!-- jQuery -->
 <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
 
@@ -24,6 +25,31 @@
 <!--
 <h1 class="h1"></h1>
 -->
+
+<audio id="audio">
+  <source src="./audio/audio-test-accomp.mp3" type="audio/mp3" />
+</audio>
+
+<div class="container">
+  <div class="player">
+    <div class="cover">
+      <div class="play-btn">
+        <i class="far fa-play-circle fa-4x">start</i>
+      </div>
+      <div class="img"></div>
+    </div>
+    <div>
+      <div class="progress">
+        <div></div>
+      </div>
+      <span class="percent">0%</span>
+    </div>
+  </div>
+
+  <div class="knob-container">
+    <div class="knob"></div>
+  </div>
+</div>
 
 </body>
 <script>
@@ -115,5 +141,151 @@ function pauseAll() {
   buttonPlay.html('Play');
   buttonPlay.removeClass('paused');
 };
+
+
+
+/*
+const knob = document.querySelector('.knob');
+
+function calculateDegree(e) {
+  const x1 = window.innerWidth / 2;
+  const y1 = window.innerHeight / 2;
+  const x2 = e.clientX;
+  const y2 = e.clientY;
+
+  const deltaX = x1 - x2;
+  const deltaY = y1 - y2;
+
+  const rad = Math.atan2(deltaY, deltaX);
+
+  let deg = rad * (180 / Math.PI);
+
+  return deg;
+};
+
+knob.addEventListener("mousedown", function () {
+  knob.addEventListener("mousemove", rotate);
+    function rotate(e) {
+      const result = Math.floor(calculateDegree(e) - 90);
+      knob.style.transform = `rotate(${result}deg)`;
+    }
+    knob.addEventListener("mouseup", function () {
+      knob.removeEventListener("mousemove", rotate);
+    });
+});
+
+
+*/
+
+
+
+
+
+
+
+
+const knob = document.querySelector(".knob");
+const audio = document.querySelector("#audio");
+const prog = document.querySelector(".progress > div");
+const bar = document.querySelector(".progress");
+const pplay = document.querySelector(".play-btn");
+const percent = document.querySelector(".percent");
+
+audio.volume = 0.0;
+
+let prevX = 0;
+let prevY = 0;
+
+let vol = 0;
+
+barW = bar.clientWidth;
+
+function volumeKnob(e) {
+  const w = knob.clientWidth / 2;
+  const h = knob.clientHeight / 2;
+
+  const x = e.clientX - knob.offsetLeft;
+  const y = e.clientY - knob.offsetTop;
+
+  const deltaX = w - x;
+  const deltaY = h - y;
+
+  const rad = Math.atan2(deltaY, deltaX);
+
+  let deg = rad * (180/Math.PI);
+
+  if (y < h && x > w) {
+    if (prevX <= x && prevY <= y) {
+      vol++;
+    }
+    else if ( prevX >= x && prevY >= y) {
+      vol--;
+    }
+  }
+  else if (y > h && x > w) {
+    if (prevX >= x && prevY <= y) {
+      vol++;
+    }
+    else if (prevX <= x && prevY >= y) {
+      vol--;
+    }
+  }
+  else if (y < h && x < w) {
+    if (prevX <= x && prevY >= y) {
+      vol++;
+    }
+    else if (prevX >= x && prevY <= y) {
+      vol--;
+    }
+  }
+  else if (y > h && x < w) {
+    if (prevX >= x && prevY >= y) {
+      vol++;
+    }
+    else if (prevX <= x && prevY <= y) {
+      vol--;
+    }
+  }
+
+  const percentage = Math.round((100 * vol) / barW);
+
+  if (vol < 0) {
+    vol = 0;
+  } else if (vol > barW) {
+    vol = barW;
+  } else {
+    prog.style.width = vol + "px";
+    audio.volume = percentage / 100;
+    percent.innerText = percentage + "%";
+  }
+
+  prevX = x;
+  prevY = y;
+
+  return deg;
+};
+
+
+pplay.addEventListener("click", () => {
+  audio.play();
+  pplay.style.display = "none";
+});
+
+function rotate(e) {
+  const result = Math.floor(volumeKnob(e) - 80);
+  knob.style.transform = `rotate(${result}deg)`;
+}
+
+function startRotation() {
+  window.addEventListener("mousemove", rotate);
+  window.addEventListener("mouseup", endRotation);
+}
+
+function endRotation() {
+  window.removeEventListener("mousemove", rotate);
+}
+
+knob.addEventListener("mousedown", startRotation);
+
 </script>
 </html>
