@@ -13,12 +13,21 @@
 
 <body>
 
-<input type="range" class="input-knob"/>
-
-
+<input 
+  type="range" id="test-knob-a" class="input-knob test-a"
+  value="10" min="0" max="10" step="1"
+  data-diameter="200" data-src="./images/knob-test.svg"
+  oninput="valueChange(this.value)"
+/>
+<span id="value1"></span>
 
 </body>
 
 <script>
+
+function valueChange(a) {
+  document.getElementById('value1').innerHTML=a;
+}
+
 </script>
 </html>
