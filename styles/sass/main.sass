@@ -41,3 +41,126 @@ div.goyo-wrap
       &.change
         width: auto
         padding: 4px 16px
+
+div.knob-demo
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100%
+  height: 500px
+  background: #000
+  .slider::before
+    background: pink
+    width: 10em
+    height: 10em
+    border-radius: 50%
+  .slider::before, .knob
+    width: 10em
+    height: 10em
+    position: relative
+  .knob::before,
+  .knob::after,
+  .slider::before
+    content: ''
+    position: absolute
+    border-radius: 50%
+  .knob::before
+    top: 15px
+    left: 50%
+    transform: translateX(-50%)
+    width: 10px
+    height: 10px
+    background: #fff
+  .knob::after
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    border: solid 3px #fff
+    width: 130%
+    height: 130%
+
+div.container
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 1000px
+  background: black
+
+.player
+  width: 20em
+  color: #fff
+  margin-right: 5em
+  background: #333
+  border-radius: 8px
+  padding: 1em
+  box-shadow: 0 0 15px #1f1f1f
+  span
+    color: #ccc
+
+.cover
+  position: relative
+
+.player .img
+  width: 100%
+  height: 200px
+
+.play-btn
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  cursor: pointer
+
+.knob-container::before
+  content: ''
+  position: absolute
+  background: grey
+  width: 10em
+  height: 10em
+  border-radius: 50%
+
+.knob
+  width: 10em
+  height: 10em
+  position: relative
+
+.knob::before,
+.knob::after
+  content: ''
+  position: absolute
+  border-radius: 50%
+
+.knob::before
+  top: 15px
+  left: 50%
+  transform: translate(-50%)
+  width: 10px
+  height: 10px
+  background: #fff
+
+.knob::after
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  border: solid 3px #fff
+  width: 130%
+  height: 130%
+
+.progress
+  width: 100%
+  height: 6px
+  background: #333
+  position: relative
+
+.progress > div
+  background: #fff
+  position: absolute
+  left: 0
+  top: 0
+  height: 100%
+  width: 50%
+
+.input-knob.test-a
+  margin: 50px
+  user-select: none
+  outline: none
