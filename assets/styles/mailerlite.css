@@ -1,0 +1,59 @@
+div.mail-input input {
+  width: 100%;
+  padding: 6px 10px;
+  margin-bottom: 12px;
+  border: solid 2px #2B2C2D;
+  font-family: "neue-haas-grotesk-text", neue-haas-grotesk-text, sans-serif;
+  font-weight: 500;
+  color: #2B2C2D;
+}
+
+label.checkbox {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 40px;
+}
+label.checkbox input#mail-checkbox {
+  display: none;
+}
+label.checkbox input#mail-checkbox + label {
+  width: 18px;
+  height: 18px;
+  border: solid 2px #2B2C2D;
+}
+label.checkbox input#mail-checkbox:checked + label {
+  background: #021BF5;
+}
+label.checkbox div.label-description {
+  font-size: 14px;
+  padding: 1px 0 0 8px;
+}
+
+div.ml-form-embedSubmit {
+  text-align: center;
+  width: 148px;
+  height: 62px;
+  padding: 0 28px;
+  margin: 0 auto;
+  background: #021BF5;
+  border-radius: 26px;
+  cursor: pointer;
+}
+div.ml-form-embedSubmit button {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  color: #F0F0F0;
+  font-size: 18px;
+  line-height: 1;
+  white-space: keep-all;
+  height: 62px;
+}
+
+div.ml-form-successBody {
+  text-align: center;
+}
+div.ml-form-successBody h4 {
+  margin-top: 16px;
+}

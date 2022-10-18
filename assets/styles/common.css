@@ -1,0 +1,443 @@
+@font-face {
+  font-family: "Supply";
+  font-weight: 400;
+  src: url("/fonts/Supply-Regular.woff2") format("woff2");
+  src: url("/fonts/Supply-Regular.woff") format("woff");
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  list-style: none;
+  font-style: normal;
+  word-break: keep-all;
+  text-decoration: none;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  background-color: transparent;
+}
+
+img {
+  display: block;
+}
+
+input:focus {
+  outline: none;
+}
+
+a, a:hover, a:visited {
+  color: #2B2C2D;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background: #F0F0F0;
+  font-family: "neue-haas-grotesk-text", neue-haas-grotesk-text, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  word-spacing: -0.04em;
+  line-height: 1.4;
+  color: #2B2C2D;
+  overflow-x: hidden;
+}
+
+.button {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 18px;
+  line-height: 1;
+  display: inline-block;
+  height: 62px;
+  padding: 22px 36px;
+  border-radius: 26px;
+}
+
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}
+
+header {
+  z-index: 1001;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+header div.notification {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: #021BF5;
+  transition: height 1s;
+}
+header div.notification.closed {
+  height: 0;
+  overflow: hidden;
+}
+header div.notification article {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  padding: 0 44px;
+  margin: 0 auto;
+}
+header div.notification article p {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  padding: 0 44px;
+  margin: 0 auto;
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  padding-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  color: #F0F0F0;
+}
+header div.notification article button.close-noti {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 26px;
+  height: 26px;
+  padding: 6px;
+}
+header div.header-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  padding: 0 44px;
+  margin: 0 auto;
+}
+header div.header-wrap a.logo-goyo {
+  position: absolute;
+  top: 24px;
+  left: 22px;
+  height: 30px;
+}
+header div.header-wrap a.logo-goyo img {
+  height: 100%;
+}
+header div.header-wrap div {
+  display: flex;
+  flex-flow: row nowrap;
+  position: absolute;
+  top: 17px;
+  right: 22px;
+}
+header div.header-wrap div a.how-to-use,
+header div.header-wrap div a.updates {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 18px;
+  line-height: 1;
+  margin: 12px 32px 0 0;
+}
+header div.header-wrap div a.button {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 18px;
+  line-height: 1;
+  height: 43px;
+  padding: 12px 28px;
+  border-radius: 19px;
+  color: #F0F0F0;
+  background: #021BF5;
+}
+
+footer article {
+  width: 100%;
+  height: 48px;
+  margin: 48px 0;
+  border-top: solid 1px #9FA6A8;
+  border-bottom: solid 1px #9FA6A8;
+}
+footer article div.footer-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  padding: 0 44px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+}
+footer article div.footer-wrap div.footer-inner {
+  width: 50%;
+  padding: 12px 0px;
+}
+footer article div.footer-wrap div.footer-inner:nth-child(1) a {
+  margin-right: 32px;
+}
+footer article div.footer-wrap div.footer-inner:nth-child(2) {
+  text-align: right;
+}
+
+section {
+  position: relative;
+  width: 100%;
+}
+section article {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  padding: 0 44px;
+  margin: 0 auto;
+  padding: 180px 44px;
+}
+section article div.title {
+  margin-bottom: 60px;
+}
+section article div.title h1 {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 48px;
+  margin: 0 0 8px -2px;
+}
+
+section.main article img.main-logo {
+  width: 280px;
+  margin: 0 auto 102px auto;
+}
+section.main article img.main-plugin {
+  width: 780px;
+  margin: 0 auto;
+}
+
+section.how-goyo-works {
+  color: #F0F0F0;
+  background: #151515;
+}
+section.how-goyo-works article div.how-img-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 60%;
+  background: #1C1C1C;
+}
+section.how-goyo-works article div.how-img-wrap img.how-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+section.how-goyo-works article div.how-player {
+  margin: 86px 0;
+  text-align: center;
+}
+section.how-goyo-works article div.how-player div.nav {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 524px;
+  height: 48px;
+  margin: 0 auto 32px auto;
+}
+section.how-goyo-works article div.how-player div.nav div.title {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 32px;
+  width: 100%;
+}
+section.how-goyo-works article div.how-player div.nav button {
+  height: 100%;
+  padding: 8px 12px;
+}
+section.how-goyo-works article div.how-player div.nav button img {
+  height: 100%;
+}
+section.how-goyo-works article div.how-player button.btn-play {
+  position: relative;
+  width: 66px;
+  height: 66px;
+  border-radius: 26px;
+  border: solid 3px #F0F0F0;
+}
+section.how-goyo-works article div.how-player button.btn-play img {
+  position: absolute;
+}
+section.how-goyo-works article div.how-player button.btn-play img.play {
+  top: 18px;
+  left: 19px;
+  height: 24px;
+}
+section.how-goyo-works article div.how-player button.btn-play img.pause {
+  top: 19px;
+  left: 19px;
+  height: 22px;
+}
+section.how-goyo-works article div.how-channels {
+  display: flex;
+  flex-flow: row nowrap;
+}
+section.how-goyo-works article div.how-channels div.channel {
+  width: 33.3%;
+  text-align: center;
+}
+section.how-goyo-works article div.how-channels div.channel:nth-child(2) {
+  margin: 0 56px;
+}
+section.how-goyo-works article div.how-channels div.channel button.channel-btn {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  background: #FF4C01;
+}
+section.how-goyo-works article div.how-channels div.channel button.channel-btn span.channel-btn-light {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: #F0F0F0;
+}
+section.how-goyo-works article div.how-channels div.channel button.channel-btn.off {
+  background: #363636;
+}
+section.how-goyo-works article div.how-channels div.channel button.channel-btn.off span.channel-btn-light {
+  background: #151515;
+}
+section.how-goyo-works article div.how-channels div.channel h3 {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 32px;
+  margin: 26px 0 24px 0;
+}
+section.beta {
+  background: #F7F7F8;
+}
+section.beta article img.beta-logo {
+  width: 260px;
+  margin: 0 auto 80px auto;
+}
+section.beta article img.beta-plugin {
+  width: 556px;
+  margin: 0 auto;
+}
+section.beta article p.beta-text {
+  width: 556px;
+  margin: 32px auto;
+  font-size: 22px;
+  text-align: center;
+}
+section.beta article div.beta-mailerlite-wrap {
+  width: 556px;
+  margin: 0 auto;
+}
+
+section.sdk-n-contact article {
+  text-align: center;
+}
+section.sdk-n-contact article div h1 {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+section.sdk-n-contact article div p {
+  font-size: 18px;
+  margin-bottom: 38px;
+}
+section.sdk-n-contact article div.sdk {
+  margin-bottom: 140px;
+}
+section.sdk-n-contact article div.sdk a.button {
+  background: #021BF5;
+  color: #F0F0F0;
+}
+section.sdk-n-contact article div.contact a.button {
+  background: #66D7C8;
+}
+
+section.supertone article {
+  text-align: center;
+}
+section.supertone article img.supertone-logo {
+  display: block;
+  width: 360px;
+  margin: -80px auto 0 auto;
+}
+section.supertone article img.supertone-graphic {
+  display: block;
+  width: 890px;
+  margin: 0 auto 68px auto;
+}
+section.supertone article a.button {
+  width: 220px;
+  background: #F0F0F0;
+}
+section.supertone div#background {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #021BF5;
+}
+
+section.document article div.page-title {
+  text-align: center;
+  margin-bottom: 80px;
+}
+section.document article div.page-title h1 {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 40px;
+}
+section.document article div.page-title p {
+  color: #FF4C01;
+  margin-top: 4px;
+}
+section.document article div.content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+section.document article div.content h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 48px 0 22px 0;
+}
+section.document article div.content ul li {
+  list-style-type: disc;
+  margin-left: 13px;
+}
+section.document article div.content p, section.document article div.content li {
+  margin-bottom: 18px;
+}
+section.document article div.content p.divider {
+  width: 100%;
+  height: 2px;
+  background: #D3D3D3;
+}

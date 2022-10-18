@@ -1,0 +1,42 @@
+$black: #2B2C2D
+$white: #F0F0F0
+$blue: #021BF5
+$orange: #FF4C01
+$mint: #66D7C8
+
+// Screen
+@mixin mobile
+  @media (max-width: 900px)
+    @content
+
+@mixin tablet
+  @media (min-width: 901px) and (max-width: 1279px)
+    @content
+
+@mixin desktop
+  @media (min-width: 1280px)
+    @content
+
+// Flex
+@mixin flex-row
+  display: flex
+  flex-flow: row nowrap
+
+@mixin flex-column
+  display: flex
+  flex-flow: column nowrap
+
+// Container
+@mixin container
+  position: relative
+  width: 100%
+  max-width: 1080px
+  padding: 0 44px
+  margin: 0 auto
+
+// Typography
+@mixin font-supply
+  font-family: 'Supply', Supply, monospace
+  font-weight: 400
+  letter-spacing: 0
+  word-spacing: -0.28em

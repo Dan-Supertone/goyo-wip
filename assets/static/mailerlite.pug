@@ -1,0 +1,48 @@
+// Script
+script.
+  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+  ml('account', '137163');
+
+// HTML
+div#mlb2-1277888.ml-form-embedContainer.ml-subscribe-form.ml-subscribe-form-1277888
+  form.ml-block-form.row-form(action='https://assets.mailerlite.com/jsonp/137163/forms/64843396393469561/subscribe' data-code='' method='post' target='_blank')
+    div.mail-input.ml-field-group.ml-field-email.ml-validate-email.ml-validate-required
+      input.form-control(aria-label='email' aria-required='true' type='email' data-inputmask='' name='fields[email]' placeholder='Email' autocomplete='email')
+
+    div.ml-form-checkboxRow.ml-validate-required
+      label.checkbox
+        input#mail-checkbox(type='checkbox')
+        label(for='mail-checkbox')
+        div.label-description
+          p
+            | I have read and understood the 
+            a(href='/privacy-policy' target='_blank') Privacy Policy
+
+    input(type='hidden' name='ml-submit' value='1')
+    div.ml-form-embedSubmit
+      button.primary(type='submit') GET GOYO
+      button.loading(disabled='disabled' style='display: none;' type='button')
+        div.ml-form-embedSubmitLoad
+        span.sr-only Loading...
+    input(type='hidden' name='anticsrf' value='true')
+
+  div.ml-form-successBody.row-success(style='display: none')
+    div.ml-form-successContent
+      h4.h4 Thank you!
+      p.text A download link will be sent to your email shortly.
+
+// Style
+style(type='text/css').
+  @import url("/assets/styles/mailerlite.css");
+
+// Script
+script.
+  function ml_webform_success_1277888() {
+  var $ = ml_jQuery || jQuery;
+  $('.ml-subscribe-form-1277888 .row-success').show();
+  //$('.ml-subscribe-form-1277888 .row-form').hide();
+  }
+script(src='https://groot.mailerlite.com/js/w/webforms.min.js?v5576a374f30afe0bf2df964306af1bb8' type='text/javascript')

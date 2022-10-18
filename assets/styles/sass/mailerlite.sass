@@ -1,0 +1,52 @@
+@import "_mixins"
+
+// Email
+div.mail-input
+  input
+    width: 100%
+    padding: 6px 10px
+    margin-bottom: 12px
+    border: solid 2px $black
+    font-family: 'neue-haas-grotesk-text', neue-haas-grotesk-text, sans-serif
+    font-weight: 500
+    color: $black
+
+// Checkbox
+label.checkbox
+  @include flex-row
+  margin-bottom: 40px
+  input#mail-checkbox
+    display: none
+    & + label
+      width: 18px
+      height: 18px
+      border: solid 2px $black
+    &:checked + label
+      background: $blue
+  div.label-description
+    font-size: 14px
+    padding: 1px 0 0 8px
+
+// Button
+div.ml-form-embedSubmit
+  text-align: center
+  width: 148px
+  height: 62px
+  padding: 0 28px
+  margin: 0 auto
+  background: $blue
+  border-radius: 26px
+  cursor: pointer
+  button
+    @include font-supply
+    color: $white
+    font-size: 18px
+    line-height: 1
+    white-space: keep-all
+    height: 62px
+
+// Success
+div.ml-form-successBody
+  text-align: center
+  h4
+    margin-top: 16px

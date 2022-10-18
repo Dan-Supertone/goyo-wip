@@ -1,0 +1,223 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='description' content='')
+    title GOYO Voice Separator | De-noise, De-Reverb, De-Voice - All in One Plugin
+    link(rel='apple-touch-icon', sizes='57x57', href='./assets/images/favicon/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='./assets/images/favicon/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='./assets/images/favicon/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='./assets/images/favicon/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='./assets/images/favicon/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='./assets/images/favicon/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='./assets/images/favicon/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='./assets/images/favicon/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='./assets/images/favicon/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='./assets/images/favicon/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='./assets/images/favicon/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='./assets/images/favicon/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='./assets/images/favicon/favicon-16x16.png')
+    link(rel='stylesheet' href='./assets/styles/common.css')
+    link(rel='stylesheet' href='//use.typekit.net/ynw5mlv.css')
+    script(src='//code.jquery.com/jquery-3.6.0.min.js')
+    script(src='./assets/scripts/smooth-scroll.js')
+
+  body
+    // 모두 상대 경로로 바꾸었음
+
+    // Header
+    // include assets/static/header.pug
+    header
+      div.notification
+        article
+          p Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+          button.close-noti
+            img(src="./assets/images/header-btn-close.svg" alt="" width="100%")
+      div.header-wrap
+        a.logo-goyo(href='./' target='_self')
+          img(src='./assets/images/logo-goyo-small.svg' alt='')
+        div
+          a.how-to-use(href='' target='_self') HOW TO USE
+          a.updates(href='' target='_self') UPDATES
+          a.get-goyo.button(href='./index.html#beta' target='') GET GOYO
+
+    // Script
+    script.
+      document.querySelector('.close-noti').addEventListener("click", function() {
+        document.querySelector('.notification').classList.add('closed');
+      });
+
+
+    // Main
+    section.main
+      article
+        img.main-logo(src='./assets/images/logo-goyo-set.svg' alt='')
+        img.main-plugin(src='./assets/images/goyo-plugin.png' alt='')
+
+    // How Goyo Works
+    section.how-goyo-works
+      article
+        div.title
+          h1 HOW GOYO WORKS
+          p
+            | Use GOYO to De-Noise, De-Reverb, and even De-Voice your audio.
+            br
+            | We do this by separating audio into 3 channels for full control.
+
+        div.how-img-wrap
+          img.how-img.c-2(src='./assets/images/main-player-c2.png' alt='')
+          img.how-img.c-1(src='./assets/images/main-player-c1.png' alt='')
+          img.how-img.b-2(src='./assets/images/main-player-b2.png' alt='')
+          img.how-img.b-1(src='./assets/images/main-player-b1.png' alt='')
+          img.how-img.a-2(src='./assets/images/main-player-a2.png' alt='')
+          img.how-img.a-1(src='./assets/images/main-player-a1.png' alt='')
+
+        div.how-player
+          div.nav
+            button.btn-prev
+              img(src='./assets/images/main-player-btn-prev.svg' alt='')
+            div.title SUBWAY STATION
+            button.btn-next
+              img(src='./assets/images/main-player-btn-next.svg' alt='')
+          button.btn-play
+            img.play(src='./assets/images/main-player-btn-play.svg' alt='')
+            img.pause.hidden(src='./assets/images/main-player-btn-pause.svg' alt='')
+
+        div.how-channels
+          div.channel
+            button.channel-btn.btn-a
+              span.channel-btn-light
+            h3 AMBIENCE
+            p Ambience is everything other than the voice. A static hum, cars honking, a crowd chattering, music in the background, and everything in between.
+          div.channel
+            button.channel-btn.btn-b
+              span.channel-btn-light
+            h3 VOICE DRY
+            p Voice Dry is the voice in its clearest form. This is the closest you will get to a voice recorded at a sound-treated studio.
+          div.channel
+            button.channel-btn.btn-c
+              span.channel-btn-light
+            h3 VOICE WET
+            p Voice Wet is the echo, room sound, and other spatial artifacts associated with the voice. You may not need it always, but it’s there when you need it.
+
+    // Beta
+    section.beta#beta
+      article
+        img.beta-logo(src='./assets/images/logo-goyo-set.svg' alt='')
+        img.beta-plugin(src='./assets/images/goyo-plugin-beta.svg' alt='')
+        p.beta-text SIGN UP FOR THE BETA
+        div.beta-mailerlite-wrap
+          include assets/static/mailerlite.pug
+
+    // SDK & Contact
+    section.sdk-n-contact
+      article
+        div.sdk
+          h1 SDK
+          p GOYO is available in SDK form.<br>Let us know if you are interested!
+          a.button SDK DOCUMENTATION
+        div.contact
+          h1 CONTACT
+          p For all inquiries regarding GOYO,<br>please contact support@goyo.app
+          a.button(href='mailto:support@goyo.app') SUPPORT@GOYO.APP
+
+    // Supertone
+    section.supertone#supertone
+      article
+        img.supertone-logo(src='./assets/images/logo-poweredby-supertone.svg' alt='')
+        img.supertone-graphic(src='./assets/images/graphic-spectrum.png' alt='')
+        a.button(href='//supertone.ai' target='_blank') VISIT
+      div.background#background
+
+    // Footer
+    // include assets/static/footer.pug
+    footer
+      article
+        div.footer-wrap
+          div.footer-inner
+            a(href='' target='_self') License Agreement
+            a(href='' target='_self') Privacy Policy
+          div.footer-inner
+            span © 2022 Supertone Inc, All Rights Reserved
+
+  script.
+    // Smooth Scroll
+    $(document).ready( function() {
+      $('a').smoothScroll();
+    });
+
+    // Player
+    let btnPlay, btnPrev, btnNext, btnA, btnB, btnC, btnChA, btnChB, btnChC, isPlay, isOnA, isOnB, isOnC;
+    isPlay = false;
+    btnPlay = document.querySelector('.btn-play');
+    btnPlay.addEventListener('click', function() {
+      if (isPlay == false) {
+        document.querySelector('img.play').classList.add('hidden');
+        document.querySelector('img.pause').classList.remove('hidden');
+        isPlay = true
+      } else {
+        document.querySelector('img.play').classList.remove('hidden');
+        document.querySelector('img.pause').classList.add('hidden');
+        isPlay = false;
+      };
+    });
+
+    isOnA = true;
+    isOnB = true;
+    isOnC = true;
+    btnChA = document.querySelector('.channel-btn.btn-a');
+    btnChB = document.querySelector('.channel-btn.btn-b');
+    btnChC = document.querySelector('.channel-btn.btn-c');
+    imgA = document.querySelector('.how-img.a-1');
+    imgB = document.querySelector('.how-img.b-1');
+    imgC = document.querySelector('.how-img.c-1');
+    btnChA.addEventListener('click', function() {
+      if(isOnA == true) {
+        btnChA.classList.add('off');
+        isOnA = false;
+        imgC.classList.add('hidden');
+      } else {
+        btnChA.classList.remove('off');
+        isOnA = true;
+        imgC.classList.remove('hidden');
+      };
+    });
+    btnChB.addEventListener('click', function() {
+      if(isOnB == true) {
+        btnChB.classList.add('off');
+        isOnB = false;
+        imgA.classList.add('hidden');
+      } else {
+        btnChB.classList.remove('off');
+        isOnB = true;
+        imgA.classList.remove('hidden');
+      };
+    });
+    btnChC.addEventListener('click', function() {
+      if(isOnC == true) {
+        btnChC.classList.add('off');
+        isOnC = false;
+        imgB.classList.add('hidden');
+      } else {
+        btnChC.classList.remove('off');
+        isOnC = true;
+        imgB.classList.remove('hidden');
+      };
+    });
+
+    // Supertone
+    let item, itemHeight, background, posFromTop, winH, transPercent;
+    item = document.getElementById('supertone');
+    background = document.getElementById('background');
+
+    window.addEventListener('scroll', function() {
+      itemHeight = document.getElementById('supertone').clientHeight;
+      posFromTop = item.getBoundingClientRect().top;
+      winH = window.innerHeight;
+      if (posFromTop < winH) {
+        transPercent = (winH - posFromTop) * 100 / itemHeight;
+        background.style.width = transPercent + '%';
+      };
+    });

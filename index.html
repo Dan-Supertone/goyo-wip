@@ -1,291 +1,260 @@
 <!DOCTYPE html>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Supertone</title>
-<!-- Styles & Scripts -->
-<link rel="stylesheet" href="./styles/main.css">
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-
-</head>
-<body>
-
-<div class="goyo-wrap">
-  <div class="goyo-header">
-    <button class="play">Play</button>
-    <button class="only-voice">Only Voice</button>
-    <button class="only-accomp">Only Accomp</button>
-    <button class="both">Both</button>
-    <button class="change">Change Audio Source</button>
-  </div>
-</div>
-
-<!--
-<h1 class="h1"></h1>
--->
-
-<audio id="audio">
-  <source src="./audio/audio-test-accomp.mp3" type="audio/mp3" />
-</audio>
-
-<div class="container">
-  <div class="player">
-    <div class="cover">
-      <div class="play-btn">
-        <i class="far fa-play-circle fa-4x">start</i>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>GOYO Voice Separator | De-noise, De-Reverb, De-Voice - All in One Plugin</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="./assets/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./assets/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./assets/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./assets/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./assets/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./assets/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./assets/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="./assets/styles/common.css">
+    <link rel="stylesheet" href="//use.typekit.net/ynw5mlv.css">
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/scripts/smooth-scroll.js"></script>
+  </head>
+  <body>
+    <!-- 모두 상대 경로로 바꾸었음-->
+    <!-- Header-->
+    <!-- include assets/static/header.pug-->
+    <header>
+      <div class="notification">
+        <article>
+          <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+          <button class="close-noti"><img src="./assets/images/header-btn-close.svg" alt="" width="100%"></button>
+        </article>
       </div>
-      <div class="img"></div>
-    </div>
-    <div>
-      <div class="progress">
-        <div></div>
+      <div class="header-wrap"><a class="logo-goyo" href="./" target="_self"><img src="./assets/images/logo-goyo-small.svg" alt=""></a>
+        <div><a class="how-to-use" href="" target="_self">HOW TO USE</a><a class="updates" href="" target="_self">UPDATES</a><a class="get-goyo button" href="./index.html#beta" target="">GET GOYO</a></div>
       </div>
-      <span class="percent">0%</span>
-    </div>
-  </div>
-
-  <div class="knob-container">
-    <div class="knob"></div>
-  </div>
-</div>
-
-</body>
-<script>
-const audioVoiceA = new Audio();
-audioVoiceA.src = "./audio/audio-test-voice.mp3";
-
-const audioAccompA = new Audio();
-audioAccompA.src = "./audio/audio-test-accomp.mp3";
-
-const audioVoiceB = new Audio();
-audioVoiceB.src = "./audio/audio-2-voice.mp3";
-
-const audioAccompB = new Audio();
-audioAccompB.src = "./audio/audio-2-accomp.mp3";
-
-const audioPack = {
-  0: [audioVoiceA, audioAccompA],
-  1: [audioVoiceB, audioAccompB]
-};
-
-const audioCount = Object.keys(audioPack).length - 1;
-const buttonPlay = $('button.play');
-let isPlaying = false;
-let nowPlaying = 0;
-$('h1').html(nowPlaying);
-
-//
-
-buttonPlay.click( function () {
-  let $this = $(this);
-  if (isPlaying == false) {
-    play();
-    isPlaying = true;
-    $this.html('Pause');
-    $this.addClass('paused');
-  } else {
-    pause();
-    isPlaying = false;
-    $this.html('Play');
-    $this.removeClass('paused');
-  };
-});
-
-$('.only-voice').click( function () {
-  audioPack[nowPlaying][0].volume = 1;
-  audioPack[nowPlaying][1].volume= 0;
-});
-
-$('.only-accomp').click( function () {
-  audioPack[nowPlaying][0].volume = 0;
-  audioPack[nowPlaying][1].volume = 1;
-});
-
-$('.both').click( function () {
-  audioPack[nowPlaying][0].volume = 1;
-  audioPack[nowPlaying][1].volume = 1;
-});
-
-$('.change').click( function () {
-  pauseAll();
-  if (nowPlaying < audioCount) {
-    nowPlaying++;
-  } else {
-    nowPlaying = 0;
-  };
-  $('h1').html(nowPlaying);
-});
-
-//
-
-function play() {
-  audioPack[nowPlaying][0].play();
-  audioPack[nowPlaying][1].play();
-};
-
-function pause() {
-  audioPack[nowPlaying][0].pause();
-  audioPack[nowPlaying][1].pause();
-};
-
-function pauseAll() {
-  for (let i in audioPack) {
-    audioPack[i][0].pause();
-    audioPack[i][1].pause();
-    audioPack[i][0].currentTime = 0;
-    audioPack[i][1].currentTime = 0;
-  };
-  isPlaying = false;
-  buttonPlay.html('Play');
-  buttonPlay.removeClass('paused');
-};
-
-
-
-/*
-const knob = document.querySelector('.knob');
-
-function calculateDegree(e) {
-  const x1 = window.innerWidth / 2;
-  const y1 = window.innerHeight / 2;
-  const x2 = e.clientX;
-  const y2 = e.clientY;
-
-  const deltaX = x1 - x2;
-  const deltaY = y1 - y2;
-
-  const rad = Math.atan2(deltaY, deltaX);
-
-  let deg = rad * (180 / Math.PI);
-
-  return deg;
-};
-
-knob.addEventListener("mousedown", function () {
-  knob.addEventListener("mousemove", rotate);
-    function rotate(e) {
-      const result = Math.floor(calculateDegree(e) - 90);
-      knob.style.transform = `rotate(${result}deg)`;
-    }
-    knob.addEventListener("mouseup", function () {
-      knob.removeEventListener("mousemove", rotate);
+    </header>
+    <!-- Script-->
+    <script>
+      document.querySelector('.close-noti').addEventListener("click", function() {
+        document.querySelector('.notification').classList.add('closed');
+      });
+      
+      
+    </script>
+    <!-- Main-->
+    <section class="main">
+      <article><img class="main-logo" src="./assets/images/logo-goyo-set.svg" alt=""><img class="main-plugin" src="./assets/images/goyo-plugin.png" alt=""></article>
+    </section>
+    <!-- How Goyo Works-->
+    <section class="how-goyo-works">
+      <article>
+        <div class="title">
+          <h1>HOW GOYO WORKS</h1>
+          <p>Use GOYO to De-Noise, De-Reverb, and even De-Voice your audio.<br>We do this by separating audio into 3 channels for full control.</p>
+        </div>
+        <div class="how-img-wrap"><img class="how-img c-2" src="./assets/images/main-player-c2.png" alt=""><img class="how-img c-1" src="./assets/images/main-player-c1.png" alt=""><img class="how-img b-2" src="./assets/images/main-player-b2.png" alt=""><img class="how-img b-1" src="./assets/images/main-player-b1.png" alt=""><img class="how-img a-2" src="./assets/images/main-player-a2.png" alt=""><img class="how-img a-1" src="./assets/images/main-player-a1.png" alt=""></div>
+        <div class="how-player">
+          <div class="nav">
+            <button class="btn-prev"><img src="./assets/images/main-player-btn-prev.svg" alt=""></button>
+            <div class="title">SUBWAY STATION</div>
+            <button class="btn-next"><img src="./assets/images/main-player-btn-next.svg" alt=""></button>
+          </div>
+          <button class="btn-play"><img class="play" src="./assets/images/main-player-btn-play.svg" alt=""><img class="pause hidden" src="./assets/images/main-player-btn-pause.svg" alt=""></button>
+        </div>
+        <div class="how-channels">
+          <div class="channel">
+            <button class="channel-btn btn-a"><span class="channel-btn-light"></span></button>
+            <h3>AMBIENCE</h3>
+            <p>Ambience is everything other than the voice. A static hum, cars honking, a crowd chattering, music in the background, and everything in between.</p>
+          </div>
+          <div class="channel">
+            <button class="channel-btn btn-b"><span class="channel-btn-light"></span></button>
+            <h3>VOICE DRY</h3>
+            <p>Voice Dry is the voice in its clearest form. This is the closest you will get to a voice recorded at a sound-treated studio.</p>
+          </div>
+          <div class="channel">
+            <button class="channel-btn btn-c"><span class="channel-btn-light"></span></button>
+            <h3>VOICE WET</h3>
+            <p>Voice Wet is the echo, room sound, and other spatial artifacts associated with the voice. You may not need it always, but it’s there when you need it.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+    <!-- Beta-->
+    <section class="beta" id="beta">
+      <article><img class="beta-logo" src="./assets/images/logo-goyo-set.svg" alt=""><img class="beta-plugin" src="./assets/images/goyo-plugin-beta.svg" alt="">
+        <p class="beta-text">SIGN UP FOR THE BETA</p>
+        <div class="beta-mailerlite-wrap">
+          <!-- Script-->
+          <script>
+            (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+            .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+            n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+            (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+            ml('account', '137163');
+            
+          </script>
+          <!-- HTML-->
+          <div class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-1277888" id="mlb2-1277888">
+            <form class="ml-block-form row-form" action="https://assets.mailerlite.com/jsonp/137163/forms/64843396393469561/subscribe" data-code="" method="post" target="_blank">
+              <div class="mail-input ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                <input class="form-control" aria-label="email" aria-required="true" type="email" data-inputmask="" name="fields[email]" placeholder="Email" autocomplete="email">
+              </div>
+              <div class="ml-form-checkboxRow ml-validate-required">
+                <label class="checkbox">
+                  <input id="mail-checkbox" type="checkbox">
+                  <label for="mail-checkbox"></label>
+                  <div class="label-description">
+                    <p>I have read and understood the <a href="/privacy-policy" target="_blank">Privacy Policy</a></p>
+                  </div>
+                </label>
+              </div>
+              <input type="hidden" name="ml-submit" value="1">
+              <div class="ml-form-embedSubmit">
+                <button class="primary" type="submit">GET GOYO</button>
+                <button class="loading" disabled="disabled" style="display: none;" type="button">
+                  <div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span>
+                </button>
+              </div>
+              <input type="hidden" name="anticsrf" value="true">
+            </form>
+            <div class="ml-form-successBody row-success" style="display: none">
+              <div class="ml-form-successContent">
+                <h4 class="h4">Thank you!</h4>
+                <p class="text">A download link will be sent to your email shortly.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Style-->
+          <style type="text/css">
+            @import url("/assets/styles/mailerlite.css");
+            
+          </style>
+          <!-- Script-->
+          <script>
+            function ml_webform_success_1277888() {
+            var $ = ml_jQuery || jQuery;
+            $('.ml-subscribe-form-1277888 .row-success').show();
+            //$('.ml-subscribe-form-1277888 .row-form').hide();
+            }
+          </script>
+          <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v5576a374f30afe0bf2df964306af1bb8" type="text/javascript"></script>
+        </div>
+      </article>
+    </section>
+    <!-- SDK & Contact-->
+    <section class="sdk-n-contact">
+      <article>
+        <div class="sdk">
+          <h1>SDK</h1>
+          <p>GOYO is available in SDK form.<br>Let us know if you are interested!</p><a class="button">SDK DOCUMENTATION</a>
+        </div>
+        <div class="contact">
+          <h1>CONTACT</h1>
+          <p>For all inquiries regarding GOYO,<br>please contact support@goyo.app</p><a class="button" href="mailto:support@goyo.app">SUPPORT@GOYO.APP</a>
+        </div>
+      </article>
+    </section>
+    <!-- Supertone-->
+    <section class="supertone" id="supertone">
+      <article><img class="supertone-logo" src="./assets/images/logo-poweredby-supertone.svg" alt=""><img class="supertone-graphic" src="./assets/images/graphic-spectrum.png" alt=""><a class="button" href="//supertone.ai" target="_blank">VISIT</a></article>
+      <div class="background" id="background"></div>
+    </section>
+    <!-- Footer-->
+    <!-- include assets/static/footer.pug-->
+    <footer>
+      <article>
+        <div class="footer-wrap">
+          <div class="footer-inner"><a href="" target="_self">License Agreement</a><a href="" target="_self">Privacy Policy</a></div>
+          <div class="footer-inner"><span>© 2022 Supertone Inc, All Rights Reserved</span></div>
+        </div>
+      </article>
+    </footer>
+  </body>
+  <script>
+    // Smooth Scroll
+    $(document).ready( function() {
+      $('a').smoothScroll();
     });
-});
-
-
-*/
-
-
-
-
-
-
-
-
-const knob = document.querySelector(".knob");
-const audio = document.querySelector("#audio");
-const prog = document.querySelector(".progress > div");
-const bar = document.querySelector(".progress");
-const pplay = document.querySelector(".play-btn");
-const percent = document.querySelector(".percent");
-
-audio.volume = 0.0;
-
-let prevX = 0;
-let prevY = 0;
-
-let vol = 0;
-
-barW = bar.clientWidth;
-
-function volumeKnob(e) {
-  const w = knob.clientWidth / 2;
-  const h = knob.clientHeight / 2;
-
-  const x = e.clientX - knob.offsetLeft;
-  const y = e.clientY - knob.offsetTop;
-
-  const deltaX = w - x;
-  const deltaY = h - y;
-
-  const rad = Math.atan2(deltaY, deltaX);
-
-  let deg = rad * (180/Math.PI);
-
-  if (y < h && x > w) {
-    if (prevX <= x && prevY <= y) {
-      vol++;
-    }
-    else if ( prevX >= x && prevY >= y) {
-      vol--;
-    }
-  }
-  else if (y > h && x > w) {
-    if (prevX >= x && prevY <= y) {
-      vol++;
-    }
-    else if (prevX <= x && prevY >= y) {
-      vol--;
-    }
-  }
-  else if (y < h && x < w) {
-    if (prevX <= x && prevY >= y) {
-      vol++;
-    }
-    else if (prevX >= x && prevY <= y) {
-      vol--;
-    }
-  }
-  else if (y > h && x < w) {
-    if (prevX >= x && prevY >= y) {
-      vol++;
-    }
-    else if (prevX <= x && prevY <= y) {
-      vol--;
-    }
-  }
-
-  const percentage = Math.round((100 * vol) / barW);
-
-  if (vol < 0) {
-    vol = 0;
-  } else if (vol > barW) {
-    vol = barW;
-  } else {
-    prog.style.width = vol + "px";
-    audio.volume = percentage / 100;
-    percent.innerText = percentage + "%";
-  }
-
-  prevX = x;
-  prevY = y;
-
-  return deg;
-};
-
-
-pplay.addEventListener("click", () => {
-  audio.play();
-  pplay.style.display = "none";
-});
-
-function rotate(e) {
-  const result = Math.floor(volumeKnob(e) - 80);
-  knob.style.transform = `rotate(${result}deg)`;
-}
-
-function startRotation() {
-  window.addEventListener("mousemove", rotate);
-  window.addEventListener("mouseup", endRotation);
-}
-
-function endRotation() {
-  window.removeEventListener("mousemove", rotate);
-}
-
-knob.addEventListener("mousedown", startRotation);
-
-</script>
+    
+    // Player
+    let btnPlay, btnPrev, btnNext, btnA, btnB, btnC, btnChA, btnChB, btnChC, isPlay, isOnA, isOnB, isOnC;
+    isPlay = false;
+    btnPlay = document.querySelector('.btn-play');
+    btnPlay.addEventListener('click', function() {
+      if (isPlay == false) {
+        document.querySelector('img.play').classList.add('hidden');
+        document.querySelector('img.pause').classList.remove('hidden');
+        isPlay = true
+      } else {
+        document.querySelector('img.play').classList.remove('hidden');
+        document.querySelector('img.pause').classList.add('hidden');
+        isPlay = false;
+      };
+    });
+    
+    isOnA = true;
+    isOnB = true;
+    isOnC = true;
+    btnChA = document.querySelector('.channel-btn.btn-a');
+    btnChB = document.querySelector('.channel-btn.btn-b');
+    btnChC = document.querySelector('.channel-btn.btn-c');
+    imgA = document.querySelector('.how-img.a-1');
+    imgB = document.querySelector('.how-img.b-1');
+    imgC = document.querySelector('.how-img.c-1');
+    btnChA.addEventListener('click', function() {
+      if(isOnA == true) {
+        btnChA.classList.add('off');
+        isOnA = false;
+        imgC.classList.add('hidden');
+      } else {
+        btnChA.classList.remove('off');
+        isOnA = true;
+        imgC.classList.remove('hidden');
+      };
+    });
+    btnChB.addEventListener('click', function() {
+      if(isOnB == true) {
+        btnChB.classList.add('off');
+        isOnB = false;
+        imgA.classList.add('hidden');
+      } else {
+        btnChB.classList.remove('off');
+        isOnB = true;
+        imgA.classList.remove('hidden');
+      };
+    });
+    btnChC.addEventListener('click', function() {
+      if(isOnC == true) {
+        btnChC.classList.add('off');
+        isOnC = false;
+        imgB.classList.add('hidden');
+      } else {
+        btnChC.classList.remove('off');
+        isOnC = true;
+        imgB.classList.remove('hidden');
+      };
+    });
+    
+    // Supertone
+    let item, itemHeight, background, posFromTop, winH, transPercent;
+    item = document.getElementById('supertone');
+    background = document.getElementById('background');
+    
+    window.addEventListener('scroll', function() {
+      itemHeight = document.getElementById('supertone').clientHeight;
+      posFromTop = item.getBoundingClientRect().top;
+      winH = window.innerHeight;
+      if (posFromTop < winH) {
+        transPercent = (winH - posFromTop) * 100 / itemHeight;
+        background.style.width = transPercent + '%';
+      };
+    });
+  </script>
 </html>
