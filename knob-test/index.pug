@@ -44,6 +44,15 @@ html
     const btnPlay = document.getElementById('play');
     const btnPause = document.getElementById('pause');
 
+
+
+
+    const source = audioCtx.createMediaElementSource(audioAA);
+    const gainNode = audioCtx.createGain();
+
+
+
+
     btnPlay.addEventListener('click', function() {
       audioAA.play();
     });
@@ -58,5 +67,5 @@ html
 
     function controlA(a) {
       document.getElementById('value-a').innerHTML = a;
-      audioAA.volume = a;
+      gainNode.gain.value = a;
     }
