@@ -50,7 +50,7 @@
     const source = audioCtx.createMediaElementSource(audioAA);
     const gainNode = audioCtx.createGain();
     
-    
+    source.connect(gainNode);
     
     
     btnPlay.addEventListener('click', function() {
