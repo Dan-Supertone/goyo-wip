@@ -217,17 +217,20 @@ function progress() {
   };
 };
 
-audioPack[nowPlaying][1].onended = function() {
-  pauseAll();
-  if (nowPlaying < audioCount) {
-    nowPlaying++;
-  } else {
-    nowPlaying = 0;
-  };
-  navPlay.innerHTML = audioPack[nowPlaying][0];
-  play();
-  setVolume();
-};
 
+let checkAudioEndInterval = setInterval(checkAudioEnd, 10);
+function checkAudioEnd() {
+  audioPack[nowPlaying][1].onended = function() {
+    pauseAll();
+    if (nowPlaying < audioCount) {
+      nowPlaying++;
+    } else {
+      nowPlaying = 0;
+    };
+    navPlay.innerHTML = audioPack[nowPlaying][0];
+    play();
+    setVolume();
+  };
+};
 
 
