@@ -297,10 +297,11 @@ window.addEventListener("load", function () {
     };
 
     el.refresh();
-    el.redraw(true); // el.addEventListener("keydown", ik.keydown);
-
+    el.redraw(true);
+    el.addEventListener("keydown", ik.keydown);
     el.addEventListener("mousedown", ik.pointerdown);
-    el.addEventListener("touchstart", ik.pointerdown); // el.addEventListener("wheel", ik.wheel);
+    el.addEventListener("touchstart", ik.pointerdown);
+    el.addEventListener("wheel", ik.wheel);
   };
 
   var refreshque = function refreshque() {

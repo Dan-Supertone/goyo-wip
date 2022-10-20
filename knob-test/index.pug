@@ -31,16 +31,25 @@ html
         div#nav-play
         div#progress-container
           div#progress-bar
-        button#btn-play Play
-        button#btn-pause Pause
-        button#btn-prev Prev
-        button#btn-next Next
-        input#knob-a.input-knob.test(type='range' value='1' min='0' max='1' step='0.01' data-src='../assets/images/temp/knob-test.svg' oninput='controlA(this.value)')
-        span#value-a
-        input#knob-b.input-knob.test(type='range' value='1' min='0' max='1' step='0.01' data-src='../assets/images/temp/knob-test.svg' oninput='controlB(this.value)')
-        span#value-b
-        input#knob-c.input-knob.test(type='range' value='1' min='0' max='1' step='0.01' data-src='../assets/images/temp/knob-test.svg' oninput='controlC(this.value)')
-        span#value-c
+        div.control-container
+          button#btn-play Play
+          button#btn-pause Pause
+          button#btn-prev Prev
+          button#btn-next Next
+        div.btn-container
+          button#btn-a AMBIENCE
+          button#btn-b VOICE DRY
+          button#btn-c VOICE WET
+
+
+
+        //-
+          input#knob-a.input-knob.test(type='range' value='1' min='0' max='1' step='0.01' data-src='../assets/images/temp/knob-test.svg' oninput='controlA(this.value)')
+          span#value-a
+          input#knob-b.input-knob.test(type='range' value='1' min='0' max='1' step='0.01' data-src='../assets/images/temp/knob-test.svg' oninput='controlB(this.value)')
+          span#value-b
+          input#knob-c.input-knob.test(type='range' value='1' min='0' max='1' step='0.01' data-src='../assets/images/temp/knob-test.svg' oninput='controlC(this.value)')
+          span#value-c
 
   script(src='../assets/scripts/player.js')
   script.

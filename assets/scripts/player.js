@@ -26,11 +26,15 @@ const btnPause = document.getElementById('btn-pause');
 const btnPrev = document.getElementById('btn-prev');
 const btnNext = document.getElementById('btn-next');
 const navPlay = document.getElementById('nav-play');
+const btnA = document.getElementById('btn-a');
+const btnB = document.getElementById('btn-b');
+const btnC = document.getElementById('btn-c');
 
 let nowPlaying = 0;
 let isPlaying = false;
-
-
+let statusA = true;
+let statusB = true;
+let statusC = true;
 
 
 
@@ -48,12 +52,6 @@ let isPlaying = false;
 // 플레이어 네비게이션 타이틀 리셋
 navPlay.innerHTML = audioPack[nowPlaying][0];
 
-// 볼륨 값 리셋 temp
-document.getElementById('value-a').innerHTML = document.getElementById('knob-a').value;
-document.getElementById('value-b').innerHTML = document.getElementById('knob-b').value;
-document.getElementById('value-c').innerHTML = document.getElementById('knob-c').value;
-
-
 
 
 
@@ -65,6 +63,10 @@ document.getElementById('value-c').innerHTML = document.getElementById('knob-c')
 
 
 btnPrev.addEventListener('click', function() {
+  let wasPlaying;
+  if (isPlaying == true) {
+    wasPlaying = true;
+  };
   pauseAll();
   if (nowPlaying > 0) {
     nowPlaying--;
@@ -73,9 +75,16 @@ btnPrev.addEventListener('click', function() {
   };
   navPlay.innerHTML = audioPack[nowPlaying][0];
   setVolume();
+  if (wasPlaying == true) {
+    play()
+  };
 });
 
 btnNext.addEventListener('click', function() {
+  let wasPlaying;
+  if (isPlaying == true) {
+    wasPlaying = true;
+  };
   pauseAll();
   if (nowPlaying < audioCount) {
     nowPlaying++;
@@ -84,6 +93,9 @@ btnNext.addEventListener('click', function() {
   };
   navPlay.innerHTML = audioPack[nowPlaying][0];
   setVolume();
+  if (wasPlaying == true) {
+    play()
+  };
 });
 
 
@@ -100,6 +112,7 @@ function play() {
   audioPack[nowPlaying][1].play();
   audioPack[nowPlaying][2].play();
   audioPack[nowPlaying][3].play();
+  isPlaying = true;
   progress();
 };
 
@@ -107,6 +120,7 @@ function pause() {
   audioPack[nowPlaying][1].pause();
   audioPack[nowPlaying][2].pause();
   audioPack[nowPlaying][3].pause();
+  isPlaying = false;
 };
 
 function pauseAll() {
@@ -128,29 +142,62 @@ function pauseAll() {
 
 
 
+btnA.addEventListener('click', toggleA);
+btnB.addEventListener('click', toggleB);
+btnC.addEventListener('click', toggleC);
 
-
-
-
-function controlA(a) {
-  document.getElementById('value-a').innerHTML = a;
-  audioPack[nowPlaying][1].volume = a;
+function toggleA() {
+  if (statusA == true) {
+    btnA.classList.add('off');
+    audioPack[nowPlaying][1].muted = true;
+    statusA = false;
+  } else {
+    btnA.classList.remove('off');
+    audioPack[nowPlaying][1].muted = false;
+    statusA = true;
+  };
 };
 
-function controlB(a) {
-  document.getElementById('value-b').innerHTML = a;
-  audioPack[nowPlaying][2].volume = a;
+function toggleB() {
+  if (statusB == true) {
+    btnB.classList.add('off');
+    audioPack[nowPlaying][2].muted = true;
+    statusB = false;
+  } else {
+    btnB.classList.remove('off');
+    audioPack[nowPlaying][2].muted = false;
+    statusB = true;
+  };
 };
 
-function controlC(a) {
-  document.getElementById('value-c').innerHTML = a;
-  audioPack[nowPlaying][3].volume = a;
+function toggleC() {
+  if (statusC == true) {
+    btnC.classList.add('off');
+    audioPack[nowPlaying][3].muted = true;
+    statusC = false;
+  } else {
+    btnC.classList.remove('off');
+    audioPack[nowPlaying][3].muted = false;
+    statusC = true;
+  };
 };
 
 function setVolume() {
-  audioPack[nowPlaying][1].volume = document.getElementById('knob-a').value;
-  audioPack[nowPlaying][2].volume = document.getElementById('knob-b').value;
-  audioPack[nowPlaying][3].volume = document.getElementById('knob-c').value;
+  if (statusA == true) {
+    audioPack[nowPlaying][1].muted = false;
+  } else {
+    audioPack[nowPlaying][1].muted = true;
+  };
+  if (statusB == true) {
+    audioPack[nowPlaying][2].muted = false;
+  } else {
+    audioPack[nowPlaying][2].muted = true;
+  };
+  if (statusC == true) {
+    audioPack[nowPlaying][3].muted = false;
+  } else {
+    audioPack[nowPlaying][3].muted = true;
+  };
 };
 
 
