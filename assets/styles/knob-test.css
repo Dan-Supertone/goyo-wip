@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 section {
   width: 100%;
 }
@@ -12,4 +16,24 @@ section article {
   height: 1000px;
   user-select: none;
   outline: none;
+}
+
+span {
+  display: inline-block;
+  width: 100px;
+}
+
+#nav-play {
+  font-size: 100px;
+}
+
+#progress-container {
+  width: 400px;
+  height: 50px;
+  border: solid 3px #000;
+}
+#progress-container #progress-bar {
+  width: 0;
+  height: 100%;
+  background: #000;
 }
