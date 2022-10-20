@@ -207,13 +207,14 @@ function setVolume() {
 
 
 function progress() {
-  audioPack[nowPlaying][1].addEventListener("timeupdate", function () {
+  let progressInterval = setInterval(progressUpdate, 10);
+  function progressUpdate() {
     let duration = audioPack[nowPlaying][1].duration;
     let currentTime = audioPack[nowPlaying][1].currentTime;
     let currentPercent = currentTime * 100 / duration;
     let progress = document.getElementById('progress-bar');
     progress.style.width = currentPercent + '%';
-  });
+  };
 };
 
 audioPack[nowPlaying][1].onended = function() {

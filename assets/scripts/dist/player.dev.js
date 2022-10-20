@@ -210,13 +210,17 @@ function setVolume() {
 ;
 
 function progress() {
-  audioPack[nowPlaying][1].addEventListener("timeupdate", function () {
+  var progressInterval = setInterval(progressUpdate, 10);
+
+  function progressUpdate() {
     var duration = audioPack[nowPlaying][1].duration;
     var currentTime = audioPack[nowPlaying][1].currentTime;
     var currentPercent = currentTime * 100 / duration;
     var progress = document.getElementById('progress-bar');
     progress.style.width = currentPercent + '%';
-  });
+  }
+
+  ;
 }
 
 ;
