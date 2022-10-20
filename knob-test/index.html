@@ -27,85 +27,14 @@
   <body>
     <section>
       <article>
-        <button id="play">Play</button>
-        <button id="pause">Pause</button>
+        <button id="btn-play">Play</button>
+        <button id="btn-pause">Pause</button>
+        <button id="btn-prev">Prev</button>
+        <button id="btn-next">Next</button>
         <input class="input-knob test" type="range" value="1" min="0" max="1" step="0.01" data-src="../assets/images/temp/knob-test.svg" oninput="controlA(this.value)"><span id="value-a"></span>
       </article>
     </section>
   </body>
-  <script>
-    window.inputKnobsOptions = {knobDiameter:"200"};
-    
-    
-    const audioAA = new Audio();
-    audioAA.src = "../assets/audios/01_subway_station_ambience.mp3"
-    audioAA.loop = true;
-    
-    const btnPlay = document.getElementById('play');
-    const btnPause = document.getElementById('pause');
-    
-    
-    
-    
-    const source = audioCtx.createMediaElementSource(audioAA);
-    const gainNode = audioCtx.createGain();
-    
-    source.connect(gainNode);
-    
-    
-    btnPlay.addEventListener('click', function() {
-      if (context.state === 'suspended') {
-        // 실행 상태로 변경
-        audioContext.resume();
-      }
-    });
-    
-    btnPause.addEventListener('click', function() {
-      audioAA.pause();
-    });
-    
-    
-    
-    window.onload = init;
-    let context;
-    let bufferLoader;
-    
-    function init() {
-      context = new AudioContext();
-    
-      bufferLoader = new BufferLoader(
-        context,
-        [
-          '../assets/audios/01_subway_station_ambience.mp3',
-          '../assets/audios/01_subway_station_voicedry.mp3'
-        ],
-        finishedLoading
-      );
-    
-      bufferLoader.load();
-    };
-    
-    function finishedLoading(bufferList) {
-      let source1 = context.createBufferSource();
-      let source2 = context.createBufferSource();
-      source1.buffer = bufferList[0];
-      source2.buffer = bufferList[1];
-    
-      source1.connect(context.destination);
-      source2.connect(context.destination);
-      source1.noteOn(0);
-      source2.noteOn(0);
-    };
-    
-    var gainNode = context.createGainNode();
-    source1.connect(gainNode);
-    gainNode.connect(context.destination);
-    
-    
-    
-    function controlA(a) {
-      document.getElementById('value-a').innerHTML = a;
-      gainNode.gain.value = a;
-    }
-  </script>
+  <script src="../assets/scripts/player.js"></script>
+  <script></script>
 </html>
