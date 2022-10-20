@@ -1,4 +1,3 @@
-// 오디오 파일 불러오기 & 배열화
 const audioAA = new Audio('../assets/audios/audioAA.mp3');
 const audioAB = new Audio('../assets/audios/audioAB.mp3');
 const audioAC = new Audio('../assets/audios/audioAC.mp3');
@@ -36,32 +35,42 @@ let statusA = true;
 let statusB = true;
 let statusC = true;
 
-
-
-
-
-// 노브 조작 마우스 세로 드래그만 되게!!!!!
-
-
-
-// 방문자 기기 체크 (iPhone, iPad, iOS)
-  // 모바일인 경우, iPad인 경우
-  // 창 너비에 변화가 일어날 때
-  // 재생 상황 리셋
-
-// 플레이어 네비게이션 타이틀 리셋
+// Update Current Source Title
 navPlay.innerHTML = audioPack[nowPlaying][0];
 
+// Play & Pause
+btnPlay.addEventListener('click', play);
+btnPause.addEventListener('click', pause);
 
+function play() {
+  audioPack[nowPlaying][1].play();
+  audioPack[nowPlaying][2].play();
+  audioPack[nowPlaying][3].play();
+  isPlaying = true;
+  progress();
+};
 
+function pause() {
+  audioPack[nowPlaying][1].pause();
+  audioPack[nowPlaying][2].pause();
+  audioPack[nowPlaying][3].pause();
+  isPlaying = false;
+};
 
+// Pause All
+function pauseAll() {
+  for (let i in audioPack) {
+    audioPack[i][1].pause();
+    audioPack[i][2].pause();
+    audioPack[i][3].pause();
+    audioPack[i][1].currentTime = 0;
+    audioPack[i][2].currentTime = 0;
+    audioPack[i][3].currentTime = 0;
+  };
+  isPlaying = false;
+};
 
-
-
-
-
-
-
+// Change Source
 btnPrev.addEventListener('click', function() {
   let wasPlaying;
   if (isPlaying == true) {
@@ -98,50 +107,7 @@ btnNext.addEventListener('click', function() {
   };
 });
 
-
-
-
-
-btnPlay.addEventListener('click', play);
-btnPause.addEventListener('click', pause);
-
-
-
-
-function play() {
-  audioPack[nowPlaying][1].play();
-  audioPack[nowPlaying][2].play();
-  audioPack[nowPlaying][3].play();
-  isPlaying = true;
-  progress();
-};
-
-function pause() {
-  audioPack[nowPlaying][1].pause();
-  audioPack[nowPlaying][2].pause();
-  audioPack[nowPlaying][3].pause();
-  isPlaying = false;
-};
-
-function pauseAll() {
-  for (let i in audioPack) {
-    audioPack[i][1].pause();
-    audioPack[i][2].pause();
-    audioPack[i][3].pause();
-    audioPack[i][1].currentTime = 0;
-    audioPack[i][2].currentTime = 0;
-    audioPack[i][3].currentTime = 0;
-  };
-  isPlaying = false;
-};
-
-
-
-
-
-
-
-
+// Toggle Each Track
 btnA.addEventListener('click', toggleA);
 btnB.addEventListener('click', toggleB);
 btnC.addEventListener('click', toggleC);
@@ -182,6 +148,7 @@ function toggleC() {
   };
 };
 
+// Adjust Mute Status
 function setVolume() {
   if (statusA == true) {
     audioPack[nowPlaying][1].muted = false;
@@ -200,12 +167,7 @@ function setVolume() {
   };
 };
 
-
-
-
-
-
-
+// Progress Bar
 function progress() {
   let progressInterval = setInterval(progressUpdate, 10);
   function progressUpdate() {
@@ -217,7 +179,7 @@ function progress() {
   };
 };
 
-
+// Check Playback Completion
 let checkAudioEndInterval = setInterval(checkAudioEnd, 10);
 function checkAudioEnd() {
   audioPack[nowPlaying][1].onended = function() {
