@@ -35,7 +35,7 @@
           <button class="close-noti"><img src="./assets/images/header-btn-close.svg" alt="" width="100%"></button>
         </article>
       </div>
-      <div class="header-wrap"><a class="logo-goyo" href="./" target="_self"><img src="./assets/images/logo-goyo-small.svg" alt=""></a>
+      <div class="header-wrap"><a class="logo-goyo" href="./" target="_self"><img src="./assets/images/logo-goyo-small-blue.svg" alt=""></a>
         <div><a class="how-to-use" href="" target="_self">HOW TO USE</a><a class="updates" href="" target="_self">UPDATES</a><a class="get-goyo button" href="./index.html#beta" target="">GET GOYO</a></div>
       </div>
     </header>
@@ -49,7 +49,10 @@
     </script>
     <!-- Main-->
     <section class="main">
-      <article><img class="main-logo" src="./assets/images/logo-goyo-set.svg" alt=""><img class="main-plugin" src="./assets/images/goyo-plugin.png" alt=""></article>
+      <article><img class="main-logo" src="./assets/images/logo-goyo-set-a.svg" alt="">
+        <p class="main-logo-sub">VOICE SEPARATOR</p><img class="main-plugin" src="./assets/images/goyo-plugin.png" alt="">
+        <p class="main-plugin-sub">De-Noise. De-Reverb. De-Voice.<br>All in One Plugin</p><img class="main-poweredby" src="./assets/images/logo-poweredby-supertone.svg" alt=""><a class="get-goyo button" href="./index.html#beta" target="">GET GOYO</a>
+      </article>
     </section>
     <!-- How Goyo Works-->
     <section class="how-goyo-works">
@@ -58,14 +61,33 @@
           <h1>HOW GOYO WORKS</h1>
           <p>Use GOYO to De-Noise, De-Reverb, and even De-Voice your audio.<br>We do this by separating audio into 3 channels for full control.</p>
         </div>
-        <div class="how-img-wrap"><img class="how-img c-2" src="./assets/images/main-player-c2.png" alt=""><img class="how-img c-1" src="./assets/images/main-player-c1.png" alt=""><img class="how-img b-2" src="./assets/images/main-player-b2.png" alt=""><img class="how-img b-1" src="./assets/images/main-player-b1.png" alt=""><img class="how-img a-2" src="./assets/images/main-player-a2.png" alt=""><img class="how-img a-1" src="./assets/images/main-player-a1.png" alt=""></div>
         <div class="how-player">
-          <div class="nav">
-            <button class="btn-prev"><img src="./assets/images/main-player-btn-prev.svg" alt=""></button>
-            <div class="title">SUBWAY STATION</div>
-            <button class="btn-next"><img src="./assets/images/main-player-btn-next.svg" alt=""></button>
+          <div class="player-btn"></div>
+          <div class="player-nav">
+            <div class="player-nav-inner">
+              <div id="current-source">SUBWAY STATION</div>
+              <div id="btn-prev"> </div>
+              <div id="btn-next"> </div>
+            </div>
+            <div id="progress-bar"></div>
           </div>
-          <button class="btn-play"><img class="play" src="./assets/images/main-player-btn-play.svg" alt=""><img class="pause hidden" src="./assets/images/main-player-btn-pause.svg" alt=""></button>
+        </div>
+        <div class="how-track-wrap">
+          <div class="how-track" id="track-a">
+            <p class="name">AMBIENCE</p>
+            <button class="track" id="btn-a">ON</button>
+            <p class="info">Ambience is everything other than the voice. A static hum, cars honking, a crowd chattering, music in the background, and everything in between.</p>
+          </div>
+          <div class="how-track" id="track-b">
+            <p class="name">VOICE</p>
+            <button class="track" id="btn-b">ON</button>
+            <p class="info">Voice is the voice in its clearest form. This is the closest you will get to a voice recorded at a sound-treated studio.</p>
+          </div>
+          <div class="how-track" id="track-c">
+            <p class="name">VOICE ECHO</p>
+            <button class="track" id="btn-c">ON</button>
+            <p class="info">Voice Echo is the echo, room sound, and other spatial artifacts associated with the voice. You may not need it always, but it’s there when you need it.</p>
+          </div>
         </div>
         <div class="how-channels">
           <div class="channel">
@@ -86,10 +108,12 @@
         </div>
       </article>
     </section>
+    <!---->
     <!-- Beta-->
     <section class="beta" id="beta">
-      <article><img class="beta-logo" src="./assets/images/logo-goyo-set.svg" alt=""><img class="beta-plugin" src="./assets/images/goyo-plugin-beta.svg" alt="">
-        <p class="beta-text">SIGN UP FOR THE BETA</p>
+      <article>
+        <p class="p-1">SIGN UP FOR THE BETA</p>
+        <p class="p-2">TRY IT FREE</p>
         <div class="beta-mailerlite-wrap">
           <!-- 모두 상대경로로 바꾸었음-->
           <!-- Script-->
@@ -206,40 +230,31 @@
     btnChA = document.querySelector('.channel-btn.btn-a');
     btnChB = document.querySelector('.channel-btn.btn-b');
     btnChC = document.querySelector('.channel-btn.btn-c');
-    imgA = document.querySelector('.how-img.a-1');
-    imgB = document.querySelector('.how-img.b-1');
-    imgC = document.querySelector('.how-img.c-1');
     btnChA.addEventListener('click', function() {
       if(isOnA == true) {
         btnChA.classList.add('off');
         isOnA = false;
-        imgC.classList.add('hidden');
       } else {
         btnChA.classList.remove('off');
         isOnA = true;
-        imgC.classList.remove('hidden');
       };
     });
     btnChB.addEventListener('click', function() {
       if(isOnB == true) {
         btnChB.classList.add('off');
         isOnB = false;
-        imgA.classList.add('hidden');
       } else {
         btnChB.classList.remove('off');
         isOnB = true;
-        imgA.classList.remove('hidden');
       };
     });
     btnChC.addEventListener('click', function() {
       if(isOnC == true) {
         btnChC.classList.add('off');
         isOnC = false;
-        imgB.classList.add('hidden');
       } else {
         btnChC.classList.remove('off');
         isOnC = true;
-        imgB.classList.remove('hidden');
       };
     });
     

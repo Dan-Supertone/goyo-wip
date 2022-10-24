@@ -37,7 +37,7 @@ html
             img(src="./assets/images/header-btn-close.svg" alt="" width="100%")
       div.header-wrap
         a.logo-goyo(href='./' target='_self')
-          img(src='./assets/images/logo-goyo-small.svg' alt='')
+          img(src='./assets/images/logo-goyo-small-blue.svg' alt='')
         div
           a.how-to-use(href='' target='_self') HOW TO USE
           a.updates(href='' target='_self') UPDATES
@@ -53,8 +53,12 @@ html
     // Main
     section.main
       article
-        img.main-logo(src='./assets/images/logo-goyo-set.svg' alt='')
+        img.main-logo(src='./assets/images/logo-goyo-set-a.svg' alt='')
+        p.main-logo-sub VOICE SEPARATOR
         img.main-plugin(src='./assets/images/goyo-plugin.png' alt='')
+        p.main-plugin-sub De-Noise. De-Reverb. De-Voice.<br>All in One Plugin
+        img.main-poweredby(src='./assets/images/logo-poweredby-supertone.svg' alt='')
+        a.get-goyo.button(href='./index.html#beta' target='') GET GOYO
 
     // How Goyo Works
     section.how-goyo-works
@@ -66,24 +70,40 @@ html
             br
             | We do this by separating audio into 3 channels for full control.
 
-        div.how-img-wrap
-          img.how-img.c-2(src='./assets/images/main-player-c2.png' alt='')
-          img.how-img.c-1(src='./assets/images/main-player-c1.png' alt='')
-          img.how-img.b-2(src='./assets/images/main-player-b2.png' alt='')
-          img.how-img.b-1(src='./assets/images/main-player-b1.png' alt='')
-          img.how-img.a-2(src='./assets/images/main-player-a2.png' alt='')
-          img.how-img.a-1(src='./assets/images/main-player-a1.png' alt='')
-
         div.how-player
-          div.nav
-            button.btn-prev
-              img(src='./assets/images/main-player-btn-prev.svg' alt='')
-            div.title SUBWAY STATION
-            button.btn-next
-              img(src='./assets/images/main-player-btn-next.svg' alt='')
-          button.btn-play
-            img.play(src='./assets/images/main-player-btn-play.svg' alt='')
-            img.pause.hidden(src='./assets/images/main-player-btn-pause.svg' alt='')
+          div.player-btn
+          div.player-nav
+            div.player-nav-inner
+              div#current-source SUBWAY STATION
+              div#btn-prev 
+              div#btn-next 
+            div#progress-bar
+
+        div.how-track-wrap
+          div#track-a.how-track
+            p.name AMBIENCE
+            button#btn-a.track ON
+            p.info Ambience is everything other than the voice. A static hum, cars honking, a crowd chattering, music in the background, and everything in between.
+          div#track-b.how-track
+            p.name VOICE
+            button#btn-b.track ON
+            p.info Voice is the voice in its clearest form. This is the closest you will get to a voice recorded at a sound-treated studio.
+          div#track-c.how-track
+            p.name VOICE ECHO
+            button#btn-c.track ON
+            p.info Voice Echo is the echo, room sound, and other spatial artifacts associated with the voice. You may not need it always, but it’s there when you need it.
+
+        //-
+          div.how-player
+            div.nav
+              button.btn-prev
+                img(src='./assets/images/main-player-btn-prev.svg' alt='')
+              div.title SUBWAY STATION
+              button.btn-next
+                img(src='./assets/images/main-player-btn-next.svg' alt='')
+            button.btn-play
+              img.play(src='./assets/images/main-player-btn-play.svg' alt='')
+              img.pause.hidden(src='./assets/images/main-player-btn-pause.svg' alt='')
 
         div.how-channels
           div.channel
@@ -102,12 +122,13 @@ html
             h3 VOICE WET
             p Voice Wet is the echo, room sound, and other spatial artifacts associated with the voice. You may not need it always, but it’s there when you need it.
 
+    //
+
     // Beta
     section.beta#beta
       article
-        img.beta-logo(src='./assets/images/logo-goyo-set.svg' alt='')
-        img.beta-plugin(src='./assets/images/goyo-plugin-beta.svg' alt='')
-        p.beta-text SIGN UP FOR THE BETA
+        p.p-1 SIGN UP FOR THE BETA
+        p.p-2 TRY IT FREE
         div.beta-mailerlite-wrap
           include assets/static/mailerlite.pug
 
@@ -170,40 +191,31 @@ html
     btnChA = document.querySelector('.channel-btn.btn-a');
     btnChB = document.querySelector('.channel-btn.btn-b');
     btnChC = document.querySelector('.channel-btn.btn-c');
-    imgA = document.querySelector('.how-img.a-1');
-    imgB = document.querySelector('.how-img.b-1');
-    imgC = document.querySelector('.how-img.c-1');
     btnChA.addEventListener('click', function() {
       if(isOnA == true) {
         btnChA.classList.add('off');
         isOnA = false;
-        imgC.classList.add('hidden');
       } else {
         btnChA.classList.remove('off');
         isOnA = true;
-        imgC.classList.remove('hidden');
       };
     });
     btnChB.addEventListener('click', function() {
       if(isOnB == true) {
         btnChB.classList.add('off');
         isOnB = false;
-        imgA.classList.add('hidden');
       } else {
         btnChB.classList.remove('off');
         isOnB = true;
-        imgA.classList.remove('hidden');
       };
     });
     btnChC.addEventListener('click', function() {
       if(isOnC == true) {
         btnChC.classList.add('off');
         isOnC = false;
-        imgB.classList.add('hidden');
       } else {
         btnChC.classList.remove('off');
         isOnC = true;
-        imgB.classList.remove('hidden');
       };
     });
 

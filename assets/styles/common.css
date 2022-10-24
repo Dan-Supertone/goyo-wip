@@ -1,8 +1,20 @@
 @font-face {
   font-family: "Supply";
+  font-weight: 200;
+  src: url("/assets/fonts/Supply-UltraLight.woff2") format("woff2");
+  src: url("/assets/fonts/Supply-UltraLight.woff") format("woff");
+}
+@font-face {
+  font-family: "Supply";
   font-weight: 400;
-  src: url("/fonts/Supply-Regular.woff2") format("woff2");
-  src: url("/fonts/Supply-Regular.woff") format("woff");
+  src: url("/assets/fonts/Supply-Regular.woff2") format("woff2");
+  src: url("/assets/fonts/Supply-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Supply";
+  font-weight: 700;
+  src: url("/assets/fonts/Supply-Bold.woff2") format("woff2");
+  src: url("/assets/fonts/Supply-Bold.woff") format("woff");
 }
 * {
   margin: 0;
@@ -27,7 +39,7 @@ input:focus {
 }
 
 a, a:hover, a:visited {
-  color: #2B2C2D;
+  color: #000000;
   cursor: pointer;
 }
 
@@ -43,7 +55,7 @@ body {
   letter-spacing: 0.02em;
   word-spacing: -0.04em;
   line-height: 1.4;
-  color: #2B2C2D;
+  color: #000000;
   overflow-x: hidden;
 }
 
@@ -52,11 +64,10 @@ body {
   font-weight: 400;
   letter-spacing: 0;
   word-spacing: -0.28em;
-  font-size: 18px;
+  font-size: 26px;
   line-height: 1;
   display: inline-block;
-  height: 62px;
-  padding: 22px 36px;
+  padding: 20px 48px;
   border-radius: 26px;
 }
 
@@ -92,15 +103,15 @@ header div.notification.closed {
 header div.notification article {
   position: relative;
   width: 100%;
-  max-width: 1080px;
-  padding: 0 44px;
+  max-width: 1280px;
+  padding: 0 42px;
   margin: 0 auto;
 }
 header div.notification article p {
   position: relative;
   width: 100%;
-  max-width: 1080px;
-  padding: 0 44px;
+  max-width: 1280px;
+  padding: 0 42px;
   margin: 0 auto;
   font-family: "Supply", Supply, monospace;
   font-weight: 400;
@@ -122,8 +133,8 @@ header div.notification article button.close-noti {
 header div.header-wrap {
   position: relative;
   width: 100%;
-  max-width: 1080px;
-  padding: 0 44px;
+  max-width: 1280px;
+  padding: 0 42px;
   margin: 0 auto;
 }
 header div.header-wrap a.logo-goyo {
@@ -149,6 +160,7 @@ header div.header-wrap div a.updates {
   letter-spacing: 0;
   word-spacing: -0.28em;
   font-size: 18px;
+  color: #021BF5;
   line-height: 1;
   margin: 12px 32px 0 0;
 }
@@ -176,8 +188,8 @@ footer article {
 footer article div.footer-wrap {
   position: relative;
   width: 100%;
-  max-width: 1080px;
-  padding: 0 44px;
+  max-width: 1280px;
+  padding: 0 42px;
   margin: 0 auto;
   display: flex;
   flex-flow: row nowrap;
@@ -200,61 +212,164 @@ section {
 section article {
   position: relative;
   width: 100%;
-  max-width: 1080px;
-  padding: 0 44px;
+  max-width: 1280px;
+  padding: 0 42px;
   margin: 0 auto;
-  padding: 180px 44px;
+  padding: 84px 84px;
 }
 section article div.title {
-  margin-bottom: 60px;
+  margin-bottom: 96px;
 }
 section article div.title h1 {
   font-family: "Supply", Supply, monospace;
   font-weight: 400;
   letter-spacing: 0;
   word-spacing: -0.28em;
-  font-size: 48px;
+  font-size: 60px;
   margin: 0 0 8px -2px;
 }
+section article div.title p {
+  font-size: 22px;
+}
 
+section.main article {
+  padding-top: 158px;
+  text-align: center;
+}
 section.main article img.main-logo {
-  width: 280px;
-  margin: 0 auto 102px auto;
+  width: 198px;
+  margin: 0 auto 16px auto;
+}
+section.main article p.main-logo-sub {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 44px;
+  margin-bottom: 44px;
 }
 section.main article img.main-plugin {
-  width: 780px;
-  margin: 0 auto;
+  width: 716px;
+  margin: 0 auto 60px auto;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.4);
+}
+section.main article p.main-plugin-sub {
+  font-size: 32px;
+  margin-bottom: 18px;
+}
+section.main article img.main-poweredby {
+  width: 306px;
+  margin: 0 auto 50px auto;
+}
+section.main article a.get-goyo.button {
+  color: #F0F0F0;
+  background: #021BF5;
 }
 
 section.how-goyo-works {
   color: #F0F0F0;
-  background: #151515;
+  background: #262626;
 }
-section.how-goyo-works article div.how-img-wrap {
+section.how-goyo-works article div.how-player {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 904px;
+  height: 76px;
+  margin: 0 auto;
+}
+section.how-goyo-works article div.how-player div.player-btn {
+  width: 214px;
+  height: 100%;
+  background: #021BF5;
+}
+section.how-goyo-works article div.how-player div.player-nav {
   position: relative;
   width: 100%;
-  padding-bottom: 60%;
-  background: #1C1C1C;
+  height: 100%;
+  border: solid 3px #021BF5;
 }
-section.how-goyo-works article div.how-img-wrap img.how-img {
+section.how-goyo-works article div.how-player div.player-nav div.player-nav-inner {
+  display: flex;
+  flex-flow: row nowrap;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-section.how-goyo-works article div.how-player {
+section.how-goyo-works article div.how-player div.player-nav div.player-nav-inner #current-source {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 5px;
+}
+section.how-goyo-works article div.how-player div.player-nav div.player-nav-inner #btn-prev, section.how-goyo-works article div.how-player div.player-nav div.player-nav-inner #btn-next {
+  width: 60px;
+  height: 100%;
+  background: #FF4C01;
+  cursor: pointer;
+}
+section.how-goyo-works article div.how-player div.player-nav div.player-nav-inner #btn-next {
+  margin-right: 24px;
+}
+section.how-goyo-works article div.how-player div.player-nav #progress-bar {
+  width: 50%;
+  height: 100%;
+  background: #414141;
+}
+section.how-goyo-works article div.how-track-wrap {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 890px;
+  margin: 26px auto 0 auto;
+  text-align: center;
+}
+section.how-goyo-works article div.how-track-wrap div.how-track {
+  width: 240px;
+}
+section.how-goyo-works article div.how-track-wrap div.how-track p.name {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 32px;
+  font-weight: 700;
+  color: #FF4C01;
+  margin-bottom: 28px;
+}
+section.how-goyo-works article div.how-track-wrap div.how-track button.track {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 35px;
+  width: 192px;
+  height: 56px;
+  margin-bottom: 34px;
+  background: #FF4C01;
+  border-radius: 18px;
+}
+section.how-goyo-works article div.how-track-wrap div.how-track p.info {
+  font-size: 14px;
+}
+section.how-goyo-works article div.how-playerrrrrrr {
   margin: 86px 0;
   text-align: center;
 }
-section.how-goyo-works article div.how-player div.nav {
+section.how-goyo-works article div.how-playerrrrrrr div.nav {
   display: flex;
   flex-flow: row nowrap;
   width: 524px;
   height: 48px;
   margin: 0 auto 32px auto;
 }
-section.how-goyo-works article div.how-player div.nav div.title {
+section.how-goyo-works article div.how-playerrrrrrr div.nav div.title {
   font-family: "Supply", Supply, monospace;
   font-weight: 400;
   letter-spacing: 0;
@@ -262,29 +377,29 @@ section.how-goyo-works article div.how-player div.nav div.title {
   font-size: 32px;
   width: 100%;
 }
-section.how-goyo-works article div.how-player div.nav button {
+section.how-goyo-works article div.how-playerrrrrrr div.nav button {
   height: 100%;
   padding: 8px 12px;
 }
-section.how-goyo-works article div.how-player div.nav button img {
+section.how-goyo-works article div.how-playerrrrrrr div.nav button img {
   height: 100%;
 }
-section.how-goyo-works article div.how-player button.btn-play {
+section.how-goyo-works article div.how-playerrrrrrr button.btn-play {
   position: relative;
   width: 66px;
   height: 66px;
   border-radius: 26px;
   border: solid 3px #F0F0F0;
 }
-section.how-goyo-works article div.how-player button.btn-play img {
+section.how-goyo-works article div.how-playerrrrrrr button.btn-play img {
   position: absolute;
 }
-section.how-goyo-works article div.how-player button.btn-play img.play {
+section.how-goyo-works article div.how-playerrrrrrr button.btn-play img.play {
   top: 18px;
   left: 19px;
   height: 24px;
 }
-section.how-goyo-works article div.how-player button.btn-play img.pause {
+section.how-goyo-works article div.how-playerrrrrrr button.btn-play img.pause {
   top: 19px;
   left: 19px;
   height: 22px;
@@ -331,21 +446,20 @@ section.how-goyo-works article div.how-channels div.channel h3 {
   margin: 26px 0 24px 0;
 }
 section.beta {
-  background: #F7F7F8;
+  background: #262626;
 }
-section.beta article img.beta-logo {
-  width: 260px;
-  margin: 0 auto 80px auto;
-}
-section.beta article img.beta-plugin {
-  width: 556px;
-  margin: 0 auto;
-}
-section.beta article p.beta-text {
-  width: 556px;
-  margin: 32px auto;
-  font-size: 22px;
+section.beta article p.p-1, section.beta article p.p-2 {
+  font-family: "Supply", Supply, monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: -0.28em;
+  font-size: 60px;
+  line-height: 1.3;
   text-align: center;
+  color: #F0F0F0;
+}
+section.beta article p.p-2 {
+  color: #FF4C01;
 }
 section.beta article div.beta-mailerlite-wrap {
   width: 556px;
