@@ -71,7 +71,9 @@ html
             | We do this by separating audio into 3 channels for full control.
 
         div.how-player
-          div.player-btn
+          div.player-play
+            div#btn-play 켜라
+            div#btn-pause.hidden 꺼라
           div.player-nav
             div.player-nav-inner
               div#current-source SUBWAY STATION
@@ -93,36 +95,11 @@ html
             button#btn-c.track ON
             p.info Voice Echo is the echo, room sound, and other spatial artifacts associated with the voice. You may not need it always, but it’s there when you need it.
 
-        //-
-          div.how-player
-            div.nav
-              button.btn-prev
-                img(src='./assets/images/main-player-btn-prev.svg' alt='')
-              div.title SUBWAY STATION
-              button.btn-next
-                img(src='./assets/images/main-player-btn-next.svg' alt='')
-            button.btn-play
-              img.play(src='./assets/images/main-player-btn-play.svg' alt='')
-              img.pause.hidden(src='./assets/images/main-player-btn-pause.svg' alt='')
-
-        div.how-channels
-          div.channel
-            button.channel-btn.btn-a
-              span.channel-btn-light
-            h3 AMBIENCE
-            p Ambience is everything other than the voice. A static hum, cars honking, a crowd chattering, music in the background, and everything in between.
-          div.channel
-            button.channel-btn.btn-b
-              span.channel-btn-light
-            h3 VOICE DRY
-            p Voice Dry is the voice in its clearest form. This is the closest you will get to a voice recorded at a sound-treated studio.
-          div.channel
-            button.channel-btn.btn-c
-              span.channel-btn-light
-            h3 VOICE WET
-            p Voice Wet is the echo, room sound, and other spatial artifacts associated with the voice. You may not need it always, but it’s there when you need it.
-
-    //
+    // Banner
+    section#banner.banner
+      article
+      div#background.bg.front
+      div.bg.back
 
     // Beta
     section.beta#beta
@@ -144,14 +121,6 @@ html
           p For all inquiries regarding GOYO,<br>please contact support@goyo.app
           a.button(href='mailto:support@goyo.app') SUPPORT@GOYO.APP
 
-    // Supertone
-    section.supertone#supertone
-      article
-        img.supertone-logo(src='./assets/images/logo-poweredby-supertone.svg' alt='')
-        img.supertone-graphic(src='./assets/images/graphic-spectrum.png' alt='')
-        a.button(href='//supertone.ai' target='_blank') VISIT
-      div.background#background
-
     // Footer
     // include assets/static/footer.pug
     footer
@@ -163,73 +132,24 @@ html
           div.footer-inner
             span © 2022 Supertone Inc, All Rights Reserved
 
+  script(src='./assets/scripts/player.js')
   script.
     // Smooth Scroll
     $(document).ready( function() {
       $('a').smoothScroll();
     });
 
-    // Player
-    let btnPlay, btnPrev, btnNext, btnA, btnB, btnC, btnChA, btnChB, btnChC, isPlay, isOnA, isOnB, isOnC;
-    isPlay = false;
-    btnPlay = document.querySelector('.btn-play');
-    btnPlay.addEventListener('click', function() {
-      if (isPlay == false) {
-        document.querySelector('img.play').classList.add('hidden');
-        document.querySelector('img.pause').classList.remove('hidden');
-        isPlay = true
-      } else {
-        document.querySelector('img.play').classList.remove('hidden');
-        document.querySelector('img.pause').classList.add('hidden');
-        isPlay = false;
-      };
-    });
-
-    isOnA = true;
-    isOnB = true;
-    isOnC = true;
-    btnChA = document.querySelector('.channel-btn.btn-a');
-    btnChB = document.querySelector('.channel-btn.btn-b');
-    btnChC = document.querySelector('.channel-btn.btn-c');
-    btnChA.addEventListener('click', function() {
-      if(isOnA == true) {
-        btnChA.classList.add('off');
-        isOnA = false;
-      } else {
-        btnChA.classList.remove('off');
-        isOnA = true;
-      };
-    });
-    btnChB.addEventListener('click', function() {
-      if(isOnB == true) {
-        btnChB.classList.add('off');
-        isOnB = false;
-      } else {
-        btnChB.classList.remove('off');
-        isOnB = true;
-      };
-    });
-    btnChC.addEventListener('click', function() {
-      if(isOnC == true) {
-        btnChC.classList.add('off');
-        isOnC = false;
-      } else {
-        btnChC.classList.remove('off');
-        isOnC = true;
-      };
-    });
-
-    // Supertone
-    let item, itemHeight, background, posFromTop, winH, transPercent;
-    item = document.getElementById('supertone');
+    // Banner
+    let banner, bannerHeight, background, posFromTop, winH, transPercent;
+    banner = document.getElementById('banner');
     background = document.getElementById('background');
 
     window.addEventListener('scroll', function() {
-      itemHeight = document.getElementById('supertone').clientHeight;
-      posFromTop = item.getBoundingClientRect().top;
+      bannerHeight = banner.clientHeight;
+      posFromTop = banner.getBoundingClientRect().top;
       winH = window.innerHeight;
       if (posFromTop < winH) {
-        transPercent = (winH - posFromTop) * 100 / itemHeight;
+        transPercent = (winH - posFromTop) * 100 / bannerHeight;
         background.style.width = transPercent + '%';
       };
     });

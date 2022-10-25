@@ -62,7 +62,10 @@
           <p>Use GOYO to De-Noise, De-Reverb, and even De-Voice your audio.<br>We do this by separating audio into 3 channels for full control.</p>
         </div>
         <div class="how-player">
-          <div class="player-btn"></div>
+          <div class="player-play">
+            <div id="btn-play">켜라</div>
+            <div class="hidden" id="btn-pause">꺼라</div>
+          </div>
           <div class="player-nav">
             <div class="player-nav-inner">
               <div id="current-source">SUBWAY STATION</div>
@@ -89,26 +92,14 @@
             <p class="info">Voice Echo is the echo, room sound, and other spatial artifacts associated with the voice. You may not need it always, but it’s there when you need it.</p>
           </div>
         </div>
-        <div class="how-channels">
-          <div class="channel">
-            <button class="channel-btn btn-a"><span class="channel-btn-light"></span></button>
-            <h3>AMBIENCE</h3>
-            <p>Ambience is everything other than the voice. A static hum, cars honking, a crowd chattering, music in the background, and everything in between.</p>
-          </div>
-          <div class="channel">
-            <button class="channel-btn btn-b"><span class="channel-btn-light"></span></button>
-            <h3>VOICE DRY</h3>
-            <p>Voice Dry is the voice in its clearest form. This is the closest you will get to a voice recorded at a sound-treated studio.</p>
-          </div>
-          <div class="channel">
-            <button class="channel-btn btn-c"><span class="channel-btn-light"></span></button>
-            <h3>VOICE WET</h3>
-            <p>Voice Wet is the echo, room sound, and other spatial artifacts associated with the voice. You may not need it always, but it’s there when you need it.</p>
-          </div>
-        </div>
       </article>
     </section>
-    <!---->
+    <!-- Banner-->
+    <section class="banner" id="banner">
+      <article></article>
+      <div class="bg front" id="background"></div>
+      <div class="bg back"></div>
+    </section>
     <!-- Beta-->
     <section class="beta" id="beta">
       <article>
@@ -186,11 +177,6 @@
         </div>
       </article>
     </section>
-    <!-- Supertone-->
-    <section class="supertone" id="supertone">
-      <article><img class="supertone-logo" src="./assets/images/logo-poweredby-supertone.svg" alt=""><img class="supertone-graphic" src="./assets/images/graphic-spectrum.png" alt=""><a class="button" href="//supertone.ai" target="_blank">VISIT</a></article>
-      <div class="background" id="background"></div>
-    </section>
     <!-- Footer-->
     <!-- include assets/static/footer.pug-->
     <footer>
@@ -202,73 +188,24 @@
       </article>
     </footer>
   </body>
+  <script src="./assets/scripts/player.js"></script>
   <script>
     // Smooth Scroll
     $(document).ready( function() {
       $('a').smoothScroll();
     });
     
-    // Player
-    let btnPlay, btnPrev, btnNext, btnA, btnB, btnC, btnChA, btnChB, btnChC, isPlay, isOnA, isOnB, isOnC;
-    isPlay = false;
-    btnPlay = document.querySelector('.btn-play');
-    btnPlay.addEventListener('click', function() {
-      if (isPlay == false) {
-        document.querySelector('img.play').classList.add('hidden');
-        document.querySelector('img.pause').classList.remove('hidden');
-        isPlay = true
-      } else {
-        document.querySelector('img.play').classList.remove('hidden');
-        document.querySelector('img.pause').classList.add('hidden');
-        isPlay = false;
-      };
-    });
-    
-    isOnA = true;
-    isOnB = true;
-    isOnC = true;
-    btnChA = document.querySelector('.channel-btn.btn-a');
-    btnChB = document.querySelector('.channel-btn.btn-b');
-    btnChC = document.querySelector('.channel-btn.btn-c');
-    btnChA.addEventListener('click', function() {
-      if(isOnA == true) {
-        btnChA.classList.add('off');
-        isOnA = false;
-      } else {
-        btnChA.classList.remove('off');
-        isOnA = true;
-      };
-    });
-    btnChB.addEventListener('click', function() {
-      if(isOnB == true) {
-        btnChB.classList.add('off');
-        isOnB = false;
-      } else {
-        btnChB.classList.remove('off');
-        isOnB = true;
-      };
-    });
-    btnChC.addEventListener('click', function() {
-      if(isOnC == true) {
-        btnChC.classList.add('off');
-        isOnC = false;
-      } else {
-        btnChC.classList.remove('off');
-        isOnC = true;
-      };
-    });
-    
-    // Supertone
-    let item, itemHeight, background, posFromTop, winH, transPercent;
-    item = document.getElementById('supertone');
+    // Banner
+    let banner, bannerHeight, background, posFromTop, winH, transPercent;
+    banner = document.getElementById('banner');
     background = document.getElementById('background');
     
     window.addEventListener('scroll', function() {
-      itemHeight = document.getElementById('supertone').clientHeight;
-      posFromTop = item.getBoundingClientRect().top;
+      bannerHeight = banner.clientHeight;
+      posFromTop = banner.getBoundingClientRect().top;
       winH = window.innerHeight;
       if (posFromTop < winH) {
-        transPercent = (winH - posFromTop) * 100 / itemHeight;
+        transPercent = (winH - posFromTop) * 100 / bannerHeight;
         background.style.width = transPercent + '%';
       };
     });

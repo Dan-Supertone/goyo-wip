@@ -1,15 +1,15 @@
-const audioAA = new Audio('../assets/audios/audioAA.mp3');
-const audioAB = new Audio('../assets/audios/audioAB.mp3');
-const audioAC = new Audio('../assets/audios/audioAC.mp3');
-const audioBA = new Audio('../assets/audios/audioBA.mp3');
-const audioBB = new Audio('../assets/audios/audioBB.mp3');
-const audioBC = new Audio('../assets/audios/audioBC.mp3');
-const audioCA = new Audio('../assets/audios/audioCA.mp3');
-const audioCB = new Audio('../assets/audios/audioCB.mp3');
-const audioCC = new Audio('../assets/audios/audioCC.mp3');
-const audioDA = new Audio('../assets/audios/audioDA.mp3');
-const audioDB = new Audio('../assets/audios/audioDB.mp3');
-const audioDC = new Audio('../assets/audios/audioDC.mp3');
+const audioAA = new Audio('./assets/audios/audioAA.mp3');
+const audioAB = new Audio('./assets/audios/audioAB.mp3');
+const audioAC = new Audio('./assets/audios/audioAC.mp3');
+const audioBA = new Audio('./assets/audios/audioBA.mp3');
+const audioBB = new Audio('./assets/audios/audioBB.mp3');
+const audioBC = new Audio('./assets/audios/audioBC.mp3');
+const audioCA = new Audio('./assets/audios/audioCA.mp3');
+const audioCB = new Audio('./assets/audios/audioCB.mp3');
+const audioCC = new Audio('./assets/audios/audioCC.mp3');
+const audioDA = new Audio('./assets/audios/audioDA.mp3');
+const audioDB = new Audio('./assets/audios/audioDB.mp3');
+const audioDC = new Audio('./assets/audios/audioDC.mp3');
 
 const audioPack = {
   0: ['Subway Station', audioAA, audioAB, audioAC],
@@ -24,10 +24,13 @@ const btnPlay = document.getElementById('btn-play');
 const btnPause = document.getElementById('btn-pause');
 const btnPrev = document.getElementById('btn-prev');
 const btnNext = document.getElementById('btn-next');
-const navPlay = document.getElementById('nav-play');
+const currentSource = document.getElementById('current-source');
 const btnA = document.getElementById('btn-a');
 const btnB = document.getElementById('btn-b');
 const btnC = document.getElementById('btn-c');
+const trackA = document.getElementById('track-a');
+const trackB = document.getElementById('track-b');
+const trackC = document.getElementById('track-c');
 
 let nowPlaying = 0;
 let isPlaying = false;
@@ -36,7 +39,7 @@ let statusB = true;
 let statusC = true;
 
 // Update Current Source Title
-navPlay.innerHTML = audioPack[nowPlaying][0];
+currentSource.innerHTML = audioPack[nowPlaying][0];
 
 // Play & Pause
 btnPlay.addEventListener('click', play);
@@ -48,6 +51,9 @@ function play() {
   audioPack[nowPlaying][3].play();
   isPlaying = true;
   progress();
+
+  btnPlay.classList.add('hidden');
+  btnPause.classList.remove('hidden');
 };
 
 function pause() {
@@ -55,6 +61,9 @@ function pause() {
   audioPack[nowPlaying][2].pause();
   audioPack[nowPlaying][3].pause();
   isPlaying = false;
+
+  btnPlay.classList.remove('hidden');
+  btnPause.classList.add('hidden');
 };
 
 // Pause All
@@ -82,7 +91,7 @@ btnPrev.addEventListener('click', function() {
   } else {
     nowPlaying = audioCount;
   };
-  navPlay.innerHTML = audioPack[nowPlaying][0];
+  currentSource.innerHTML = audioPack[nowPlaying][0];
   setVolume();
   if (wasPlaying == true) {
     play()
@@ -100,7 +109,7 @@ btnNext.addEventListener('click', function() {
   } else {
     nowPlaying = 0;
   };
-  navPlay.innerHTML = audioPack[nowPlaying][0];
+  currentSource.innerHTML = audioPack[nowPlaying][0];
   setVolume();
   if (wasPlaying == true) {
     play()
@@ -114,11 +123,11 @@ btnC.addEventListener('click', toggleC);
 
 function toggleA() {
   if (statusA == true) {
-    btnA.classList.add('off');
+    trackA.classList.add('off');
     audioPack[nowPlaying][1].muted = true;
     statusA = false;
   } else {
-    btnA.classList.remove('off');
+    trackA.classList.remove('off');
     audioPack[nowPlaying][1].muted = false;
     statusA = true;
   };
@@ -126,11 +135,11 @@ function toggleA() {
 
 function toggleB() {
   if (statusB == true) {
-    btnB.classList.add('off');
+    trackB.classList.add('off');
     audioPack[nowPlaying][2].muted = true;
     statusB = false;
   } else {
-    btnB.classList.remove('off');
+    trackB.classList.remove('off');
     audioPack[nowPlaying][2].muted = false;
     statusB = true;
   };
@@ -138,11 +147,11 @@ function toggleB() {
 
 function toggleC() {
   if (statusC == true) {
-    btnC.classList.add('off');
+    trackC.classList.add('off');
     audioPack[nowPlaying][3].muted = true;
     statusC = false;
   } else {
-    btnC.classList.remove('off');
+    trackC.classList.remove('off');
     audioPack[nowPlaying][3].muted = false;
     statusC = true;
   };
@@ -189,7 +198,7 @@ function checkAudioEnd() {
     } else {
       nowPlaying = 0;
     };
-    navPlay.innerHTML = audioPack[nowPlaying][0];
+    currentSource.innerHTML = audioPack[nowPlaying][0];
     play();
     setVolume();
   };

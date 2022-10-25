@@ -277,10 +277,15 @@ section.how-goyo-works article div.how-player {
   height: 76px;
   margin: 0 auto;
 }
-section.how-goyo-works article div.how-player div.player-btn {
+section.how-goyo-works article div.how-player div.player-play {
   width: 214px;
   height: 100%;
   background: #021BF5;
+}
+section.how-goyo-works article div.how-player div.player-play #btn-play, section.how-goyo-works article div.how-player div.player-play #btn-pause {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 section.how-goyo-works article div.how-player div.player-nav {
   position: relative;
@@ -318,7 +323,7 @@ section.how-goyo-works article div.how-player div.player-nav div.player-nav-inne
   margin-right: 24px;
 }
 section.how-goyo-works article div.how-player div.player-nav #progress-bar {
-  width: 50%;
+  width: 0;
   height: 100%;
   background: #414141;
 }
@@ -357,6 +362,13 @@ section.how-goyo-works article div.how-track-wrap div.how-track button.track {
 }
 section.how-goyo-works article div.how-track-wrap div.how-track p.info {
   font-size: 14px;
+}
+section.how-goyo-works article div.how-track-wrap div.how-track.off p.name, section.how-goyo-works article div.how-track-wrap div.how-track.off p.info {
+  color: #414141;
+}
+section.how-goyo-works article div.how-track-wrap div.how-track.off button.track {
+  color: #9F9F9F;
+  background: #414141;
 }
 section.how-goyo-works article div.how-playerrrrrrr {
   margin: 86px 0;
@@ -445,6 +457,28 @@ section.how-goyo-works article div.how-channels div.channel h3 {
   font-size: 32px;
   margin: 26px 0 24px 0;
 }
+section.banner {
+  height: 500px;
+}
+section.banner div.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+section.banner div.bg.front {
+  z-index: 1;
+  background: #FF4C01;
+}
+section.banner div.bg.back {
+  z-index: 0;
+  background: #66D7C8;
+}
+section.banner #background {
+  width: 0;
+}
+
 section.beta {
   background: #262626;
 }
