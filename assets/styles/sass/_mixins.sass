@@ -9,12 +9,8 @@ $mint: #66D7C8
   @media (max-width: 900px)
     @content
 
-@mixin tablet
-  @media (min-width: 901px) and (max-width: 1279px)
-    @content
-
 @mixin desktop
-  @media (min-width: 1280px)
+  @media (min-width: 901px)
     @content
 
 // Flex
@@ -38,6 +34,12 @@ $mint: #66D7C8
     padding: 0 22px
 
 // Typography
+@mixin font-original
+  font-family: 'neue-haas-grotesk-text', neue-haas-grotesk-text, sans-serif
+  font-weight: 500
+  letter-spacing: 0.02em
+  word-spacing: -0.04em
+
 @mixin font-supply
   font-family: 'Supply', Supply, monospace
   font-weight: 400

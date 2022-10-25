@@ -71,9 +71,12 @@ body {
   padding: 20px 48px;
   border-radius: 26px;
 }
-
-.hidden {
-  display: none;
+@media (max-width: 900px) {
+  .button {
+    font-size: 17px;
+    padding: 13px 32px;
+    border-radius: 18px;
+  }
 }
 
 .bold {
@@ -82,6 +85,22 @@ body {
 
 .italic {
   font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 901px) {
+  .only-m {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .only-pc {
+    display: none;
+  }
 }
 
 header {
@@ -93,6 +112,7 @@ header {
 header div.notification {
   position: relative;
   width: 100%;
+  height: 42px;
   background: #021BF5;
   transition: height 1s;
 }
@@ -190,6 +210,17 @@ header div.header-wrap div a.button {
   color: #F0F0F0;
   background: #021BF5;
 }
+@media (max-width: 900px) {
+  header div.notification {
+    height: 62px;
+  }
+  header div.header-wrap a.logo-goyo {
+    height: 28px;
+  }
+  header div.header-wrap div {
+    display: none;
+  }
+}
 
 footer article {
   width: 100%;
@@ -257,6 +288,21 @@ section article div.title h1 {
 section article div.title p {
   font-size: 22px;
 }
+@media (max-width: 900px) {
+  section article {
+    padding: 44px;
+  }
+  section article div.title {
+    margin-bottom: 48px;
+  }
+  section article div.title h1 {
+    font-size: 34px;
+    margin-bottom: 6px;
+  }
+  section article div.title p {
+    font-size: 12px;
+  }
+}
 
 section.main article {
   padding-top: 158px;
@@ -290,6 +336,43 @@ section.main article img.main-poweredby {
 section.main article a.get-goyo.button {
   color: #F0F0F0;
   background: #021BF5;
+}
+@media (max-width: 900px) {
+  section.main article {
+    padding-top: 148px;
+  }
+  section.main article img.main-logo {
+    width: 132px;
+  }
+  section.main article p.main-logo-sub {
+    font-size: 27px;
+    margin-bottom: 28px;
+  }
+  section.main article p.main-logo-sub::after {
+    content: "De-Noise.De-Reverb.De-Voice.";
+    display: block;
+    font-family: "neue-haas-grotesk-text", neue-haas-grotesk-text, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    word-spacing: -0.04em;
+    font-size: 16px;
+    margin-top: -2px;
+  }
+  section.main article img.main-plugin {
+    width: calc(100% - 20px);
+    margin: 0 10px 2px 10px;
+  }
+  section.main article p.main-plugin-sub {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  section.main article img.main-poweredby {
+    width: 184px;
+    margin-bottom: 32px;
+  }
+  section.main article a.get-goyo.button {
+    margin-bottom: 32px;
+  }
 }
 
 section.how-goyo-works {
@@ -353,6 +436,11 @@ section.how-goyo-works article div.how-player div.player-nav #progress-bar {
   height: 100%;
   background: #414141;
 }
+@media (max-width: 900px) {
+  section.how-goyo-works article div.how-player {
+    width: 100%;
+  }
+}
 section.how-goyo-works article div.how-track-wrap {
   display: flex;
   flex-flow: row nowrap;
@@ -395,6 +483,48 @@ section.how-goyo-works article div.how-track-wrap div.how-track.off p.name, sect
 section.how-goyo-works article div.how-track-wrap div.how-track.off button.track {
   color: #9F9F9F;
   background: #414141;
+}
+@media (max-width: 900px) {
+  section.how-goyo-works article div.how-track-wrap {
+    display: flex;
+    flex-flow: column nowrap;
+    width: calc(100% - 36px);
+    margin: 0 18px;
+    text-align: left;
+  }
+  section.how-goyo-works article div.how-track-wrap div.how-track {
+    width: 100%;
+    padding: 24px 0;
+    border-bottom: solid 1px #021BF5;
+  }
+  section.how-goyo-works article div.how-track-wrap div.how-track div.how-track-inner {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 12px;
+  }
+  section.how-goyo-works article div.how-track-wrap div.how-track div.how-track-inner p.name {
+    font-size: 24px;
+    width: 100%;
+    padding-top: 2px;
+    margin: 0;
+  }
+  section.how-goyo-works article div.how-track-wrap div.how-track div.how-track-inner button.track {
+    font-size: 22px;
+    width: 110px;
+    min-width: 110px;
+    height: 38px;
+    border-radius: 18px;
+    margin: 0;
+  }
+  section.how-goyo-works article div.how-track-wrap div.how-track p.info {
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+  }
+  section.how-goyo-works article div.how-track-wrap div.how-track:last-child {
+    padding-bottom: 10px;
+    border-bottom: none;
+  }
 }
 section.how-goyo-works article div.how-playerrrrrrr {
   margin: 86px 0;

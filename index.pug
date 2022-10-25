@@ -57,7 +57,7 @@ html
         img.main-logo(src='./assets/images/logo-goyo-set-a.svg' alt='')
         p.main-logo-sub VOICE SEPARATOR
         img.main-plugin(src='./assets/images/goyo-plugin.png' alt='')
-        p.main-plugin-sub De-Noise. De-Reverb. De-Voice.<br>All in One Plugin
+        p.main-plugin-sub <span class="only-pc">De-Noise. De-Reverb. De-Voice.</span><br>All in One Plugin
         img.main-poweredby(src='./assets/images/logo-poweredby-supertone.svg' alt='')
         a.get-goyo.button(href='./index.html#beta' target='') GET GOYO
 
@@ -68,7 +68,7 @@ html
           h1 HOW GOYO WORKS
           p
             | Use GOYO to De-Noise, De-Reverb, and even De-Voice your audio.
-            br
+            br.only-pc
             | We do this by separating audio into 3 channels for full control.
 
         div.how-player
@@ -84,16 +84,19 @@ html
 
         div.how-track-wrap
           div#track-a.how-track
-            p.name AMBIENCE
-            button#btn-a.track ON
+            div.how-track-inner
+              p.name AMBIENCE
+              button#btn-a.track ON
             p.info Ambience is everything other than the voice. A static hum, cars honking, a crowd chattering, music in the background, and everything in between.
           div#track-b.how-track
-            p.name VOICE
-            button#btn-b.track ON
+            div.how-track-inner
+              p.name VOICE
+              button#btn-b.track ON
             p.info Voice is the voice in its clearest form. This is the closest you will get to a voice recorded at a sound-treated studio.
           div#track-c.how-track
-            p.name VOICE ECHO
-            button#btn-c.track ON
+            div.how-track-inner
+              p.name VOICE ECHO
+              button#btn-c.track ON
             p.info Voice Echo is the echo, room sound, and other spatial artifacts associated with the voice. You may not need it always, but it’s there when you need it.
 
     // Banner
