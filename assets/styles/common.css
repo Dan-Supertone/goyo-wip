@@ -973,4 +973,7 @@ section.document article div.content a {
   section.document article div.content p, section.document article div.content li {
     margin-bottom: 14px;
   }
+  section.document article div.content p.divider {
+    margin: 22px 0;
+  }
 }
