@@ -396,11 +396,16 @@ section.how-goyo-works article div.how-player {
   margin: 0 auto;
 }
 section.how-goyo-works article div.how-player div.player-play {
+  position: relative;
   width: 214px;
   height: 100%;
   background: #021BF5;
 }
 section.how-goyo-works article div.how-player div.player-play #btn-play, section.how-goyo-works article div.how-player div.player-play #btn-pause {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -272,10 +272,15 @@ section.how-goyo-works
       height: 76px
       margin: 0 auto
       div.player-play
+        position: relative
         width: 214px
         height: 100%
         background: $blue
         #btn-play, #btn-pause
+          z-index: 100
+          position: absolute
+          top: 0
+          left: 0
           display: flex
           justify-content: center
           align-items: center
