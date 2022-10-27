@@ -381,6 +381,9 @@ section.how-goyo-works {
   color: #F0F0F0;
   background: #262626;
 }
+section.how-goyo-works article {
+  padding-bottom: 92px;
+}
 section.how-goyo-works article div.how-player {
   display: flex;
   flex-flow: row nowrap;
