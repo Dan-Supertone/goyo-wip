@@ -32,7 +32,10 @@ html
     header
       div.notification
         article
-          p Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+          p
+            | GOYO for Mac now in Open Beta!
+            br.only-m
+            | Windows version Coming Soon :)
           div.close-noti-wrap
             button.close-noti
               img(src="./assets/images/header-btn-close.svg" alt="" width="100%")
@@ -94,17 +97,17 @@ html
             div.how-track-inner
               p.name AMBIENCE
               button#btn-a.track ON
-            p.info Ambience is everything other than the voice. A static hum, cars honking, a crowd chattering, music in the background, and everything in between.
+            p.info Everything other than the voice. A static hum, cars honking, music in the background, and everything in between.
           div#track-b.how-track
             div.how-track-inner
               p.name VOICE
               button#btn-b.track ON
-            p.info Voice is the voice in its clearest form. This is the closest you will get to a voice recorded at a sound-treated studio.
+            p.info The voice in its clearest form. The closest you will get to studio quality vocals.
           div#track-c.how-track
             div.how-track-inner
-              p.name VOICE ECHO
+              p.name VOICE REVERB
               button#btn-c.track ON
-            p.info Voice Echo is the echo, room sound, and other spatial artifacts associated with the voice. You may not need it always, but it’s there when you need it.
+            p.info The reverb, room sound, and other spatial artifacts associated with the voice. Useful in boomy spaces with lots of echo.
 
     // Banner
     section#banner.banner
@@ -126,7 +129,7 @@ html
           | SIGN UP FOR
           br.only-m
           | THE BETA
-        p.p-2 TRY IT FREE
+        p.p-2 FREE TO USE PLUGIN
         div.beta-mailerlite-wrap
           include assets/static/mailerlite.pug
 
@@ -135,7 +138,7 @@ html
       article
         div.sdk
           h1 SDK
-          p GOYO is available in SDK form.<br>Let us know if you are interested!
+          p Ultra-Light. Cross-Platform. Multi-Architecture.<br>Super Simple Integration.
           a.button COMING SOON
         div.contact
           h1 CONTACT
@@ -154,8 +157,8 @@ html
       article
         div.footer-wrap
           div.footer-inner
-            a(href='' target='_self') License Agreement
-            a(href='' target='_self') Privacy Policy
+            a(href='./license-agreement' target='_self') License Agreement
+            a(href='./privacy-policy' target='_self') Privacy Policy
           div.footer-inner
             span © 2022 Supertone Inc, All Rights Reserved
 

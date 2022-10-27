@@ -889,6 +889,9 @@ section.supertone article a.button {
   }
 }
 
+section.document article {
+  padding-top: 120px;
+}
 section.document article div.page-title {
   text-align: center;
   margin-bottom: 80px;
