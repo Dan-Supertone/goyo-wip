@@ -1,4 +1,10 @@
-div.mail-input input {
+div.mail-input div.mail-input-wrap {
+  width: 100%;
+  height: 66px;
+  margin-bottom: 22px;
+  background: #E4E4E4;
+}
+div.mail-input div.mail-input-wrap input {
   font-family: "Supply", Supply, monospace;
   font-weight: 400;
   letter-spacing: 0;
@@ -7,15 +13,18 @@ div.mail-input input {
   font-weight: 500;
   color: #000000;
   width: 100%;
+  height: 100%;
   padding: 20px 22px;
-  margin-bottom: 22px;
-  background: #E4E4E4;
+  background: transparent;
 }
 @media (max-width: 900px) {
-  div.mail-input input {
+  div.mail-input div.mail-input-wrap {
+    height: 42px;
+    margin-bottom: 12px;
+  }
+  div.mail-input div.mail-input-wrap input {
     font-size: 16px;
     padding: 11px 14px;
-    margin-bottom: 12px;
   }
 }
 
