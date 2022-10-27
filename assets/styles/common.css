@@ -649,6 +649,11 @@ section.how-goyo-works article div.how-track-wrap div.how-track.off button.track
     border-radius: 18px;
     margin: 0;
   }
+  section.how-goyo-works article div.how-track-wrap div.how-track#track-c div.how-track-inner p.name {
+    line-height: 1;
+    margin-top: -7px;
+    margin-bottom: -5px;
+  }
   section.how-goyo-works article div.how-track-wrap div.how-track p.info {
     font-size: 12px;
     font-weight: 400;
