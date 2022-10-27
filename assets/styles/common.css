@@ -462,6 +462,14 @@ section.how-goyo-works article div.how-player div.player-nav #progress-bar {
     width: 100%;
   }
 }
+section.how-goyo-works article div.how-track-graphic {
+  width: 890px;
+  padding: 0 120px;
+  margin: 0 auto 26px auto;
+}
+section.how-goyo-works article div.how-track-graphic img {
+  width: 100%;
+}
 section.how-goyo-works article div.how-track-wrap {
   display: flex;
   flex-flow: row nowrap;
