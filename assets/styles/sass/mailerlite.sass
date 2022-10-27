@@ -3,25 +3,34 @@
 // Email
 div.mail-input
   input
-    width: 100%
-    padding: 20px 22px
-    margin-bottom: 22px
     @include font-supply
     font-size: 22px
     font-weight: 500
     color: $black
+    width: 100%
+    padding: 20px 22px
+    margin-bottom: 22px
     background: #E4E4E4
+    @include mobile
+      font-size: 16px
+      padding: 11px 14px
+      margin-bottom: 12px
 
 // Checkbox
 label.checkbox
   @include flex-row
   margin-bottom: 62px
+  @include mobile
+    margin-bottom: 36px
   input#mail-checkbox
     display: none
     & + label
       width: 24px
       height: 24px
       border: solid 2px #E4E4E4
+      @include mobile
+        width: 18px
+        height: 18px
     &:checked + label
       background: $blue
   div.label-description
@@ -31,6 +40,9 @@ label.checkbox
     a
       color: #E4E4E4
       border-bottom: solid 2px #E4E4E4
+    @include mobile
+      font-size: 11px
+      padding-left: 8px
 
 // Button
 div.ml-form-embedSubmit
@@ -38,18 +50,22 @@ div.ml-form-embedSubmit
   line-height: 1
   text-align: center
   display: block
-  width: 214px
+  width: 222px
+  height: 72px
   margin: 0 auto
-  padding: 20px 48px
-  border-radius: 26px
+  padding: 22px 0
+  border-radius: 30px
   background: $blue
   cursor: pointer
   @include mobile
-    font-size: 17px
-    padding: 13px 32px
-    border-radius: 18px
+    font-size: 24px
+    width: 200px
+    height: 58px
+    padding: 16px
+    border-radius: 24px
   button
     @include font-supply
+    line-height: 1
     text-align: center
     color: $white
     width: 100%

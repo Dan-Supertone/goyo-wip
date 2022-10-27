@@ -13,10 +13,10 @@ var audioDA = new Audio('./assets/audios/audioDA.mp3');
 var audioDB = new Audio('./assets/audios/audioDB.mp3');
 var audioDC = new Audio('./assets/audios/audioDC.mp3');
 var audioPack = {
-  0: ['Subway Station', audioAA, audioAB, audioAC],
-  1: ['Boomy Room', audioBA, audioBB, audioBC],
-  2: ['Outdoors Speech', audioCA, audioCB, audioCC],
-  3: ['Noisy Radio', audioDA, audioDB, audioDC]
+  0: ['SUBWAY STATION', audioAA, audioAB, audioAC],
+  1: ['BOOMY ROOM', audioBA, audioBB, audioBC],
+  2: ['OUTDOORS SPEECH', audioCA, audioCB, audioCC],
+  3: ['NOISY RADIO', audioDA, audioDB, audioDC]
 };
 var audioCount = Object.keys(audioPack).length - 1;
 var btnPlay = document.getElementById('btn-play');

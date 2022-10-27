@@ -1,7 +1,4 @@
 div.mail-input input {
-  width: 100%;
-  padding: 20px 22px;
-  margin-bottom: 22px;
   font-family: "Supply", Supply, monospace;
   font-weight: 400;
   letter-spacing: 0;
@@ -9,13 +6,28 @@ div.mail-input input {
   font-size: 22px;
   font-weight: 500;
   color: #000000;
+  width: 100%;
+  padding: 20px 22px;
+  margin-bottom: 22px;
   background: #E4E4E4;
+}
+@media (max-width: 900px) {
+  div.mail-input input {
+    font-size: 16px;
+    padding: 11px 14px;
+    margin-bottom: 12px;
+  }
 }
 
 label.checkbox {
   display: flex;
   flex-flow: row nowrap;
   margin-bottom: 62px;
+}
+@media (max-width: 900px) {
+  label.checkbox {
+    margin-bottom: 36px;
+  }
 }
 label.checkbox input#mail-checkbox {
   display: none;
@@ -24,6 +36,12 @@ label.checkbox input#mail-checkbox + label {
   width: 24px;
   height: 24px;
   border: solid 2px #E4E4E4;
+}
+@media (max-width: 900px) {
+  label.checkbox input#mail-checkbox + label {
+    width: 18px;
+    height: 18px;
+  }
 }
 label.checkbox input#mail-checkbox:checked + label {
   background: #021BF5;
@@ -37,24 +55,33 @@ label.checkbox div.label-description a {
   color: #E4E4E4;
   border-bottom: solid 2px #E4E4E4;
 }
+@media (max-width: 900px) {
+  label.checkbox div.label-description {
+    font-size: 11px;
+    padding-left: 8px;
+  }
+}
 
 div.ml-form-embedSubmit {
   font-size: 26px;
   line-height: 1;
   text-align: center;
   display: block;
-  width: 214px;
+  width: 222px;
+  height: 72px;
   margin: 0 auto;
-  padding: 20px 48px;
-  border-radius: 26px;
+  padding: 22px 0;
+  border-radius: 30px;
   background: #021BF5;
   cursor: pointer;
 }
 @media (max-width: 900px) {
   div.ml-form-embedSubmit {
-    font-size: 17px;
-    padding: 13px 32px;
-    border-radius: 18px;
+    font-size: 24px;
+    width: 200px;
+    height: 58px;
+    padding: 16px;
+    border-radius: 24px;
   }
 }
 div.ml-form-embedSubmit button {
@@ -62,6 +89,7 @@ div.ml-form-embedSubmit button {
   font-weight: 400;
   letter-spacing: 0;
   word-spacing: -0.28em;
+  line-height: 1;
   text-align: center;
   color: #F0F0F0;
   width: 100%;
