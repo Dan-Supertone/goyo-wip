@@ -833,7 +833,7 @@ section.sdk-n-contact article div.sdk {
 }
 section.sdk-n-contact article div.sdk a.button {
   padding-top: 19px;
-  border: dashed 3px #021BF5;
+  border: solid 3px #021BF5;
   color: #808080;
 }
 section.sdk-n-contact article div.contact a.button {
