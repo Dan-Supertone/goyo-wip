@@ -12,11 +12,15 @@ var audioCC = new Audio('./assets/audios/audioCC.mp3');
 var audioDA = new Audio('./assets/audios/audioDA.mp3');
 var audioDB = new Audio('./assets/audios/audioDB.mp3');
 var audioDC = new Audio('./assets/audios/audioDC.mp3');
+var audioEA = new Audio('./assets/audios/audioEA.mp3');
+var audioEB = new Audio('./assets/audios/audioEB.mp3');
+var audioEC = new Audio('./assets/audios/audioEC.mp3');
 var audioPack = {
   0: ['SUBWAY STATION', audioAA, audioAB, audioAC],
   1: ['BOOMY ROOM', audioBA, audioBB, audioBC],
   2: ['OUTDOORS SPEECH', audioCA, audioCB, audioCC],
-  3: ['NOISY RADIO', audioDA, audioDB, audioDC]
+  3: ['BASKETBALL COURT', audioDA, audioDB, audioDC],
+  4: ['UKULELE SINGER', audioEA, audioEB, audioEC]
 };
 var audioCount = Object.keys(audioPack).length - 1;
 var btnPlay = document.getElementById('btn-play');

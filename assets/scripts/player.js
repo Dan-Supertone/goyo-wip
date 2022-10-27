@@ -10,12 +10,16 @@ const audioCC = new Audio('./assets/audios/audioCC.mp3');
 const audioDA = new Audio('./assets/audios/audioDA.mp3');
 const audioDB = new Audio('./assets/audios/audioDB.mp3');
 const audioDC = new Audio('./assets/audios/audioDC.mp3');
+const audioEA = new Audio('./assets/audios/audioEA.mp3');
+const audioEB = new Audio('./assets/audios/audioEB.mp3');
+const audioEC = new Audio('./assets/audios/audioEC.mp3');
 
 const audioPack = {
   0: ['SUBWAY STATION', audioAA, audioAB, audioAC],
   1: ['BOOMY ROOM', audioBA, audioBB, audioBC],
   2: ['OUTDOORS SPEECH', audioCA, audioCB, audioCC],
-  3: ['NOISY RADIO', audioDA, audioDB, audioDC]
+  3: ['BASKETBALL COURT', audioDA, audioDB, audioDC],
+  4: ['UKULELE SINGER', audioEA, audioEB, audioEC]
 };
 
 const audioCount = Object.keys(audioPack).length - 1;
