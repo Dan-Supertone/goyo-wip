@@ -928,3 +928,34 @@ section.document article div.content p.divider {
   height: 2px;
   background: #D3D3D3;
 }
+section.document article div.content a {
+  color: #FF4C01;
+}
+@media (max-width: 900px) {
+  section.document article {
+    padding-top: 152px;
+  }
+  section.document article div.page-title {
+    margin-bottom: 52px;
+  }
+  section.document article div.page-title h1 {
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  section.document article div.page-title p {
+    font-size: 13px;
+  }
+  section.document article div.content {
+    font-size: 13px;
+    max-width: 100%;
+  }
+  section.document article div.content h3 {
+    font-size: 19px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  section.document article div.content p, section.document article div.content li {
+    margin-bottom: 14px;
+  }
+}

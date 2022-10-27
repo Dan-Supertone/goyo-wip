@@ -673,7 +673,25 @@ section.document
         width: 100%
         height: 2px
         background: #D3D3D3
-
-// Page: License Agreement
-section.license-agreement
-  article
+      a
+        color: $orange
+  @include mobile
+    article
+      padding-top: 152px
+      div.page-title
+        margin-bottom: 52px
+        h1
+          font-size: 40px
+          line-height: 1.1
+          margin-bottom: 12px
+        p
+          font-size: 13px
+      div.content
+        font-size: 13px
+        max-width: 100%
+        h3
+          font-size: 19px
+          line-height: 1.1
+          margin-bottom: 20px
+        p, li
+          margin-bottom: 14px
