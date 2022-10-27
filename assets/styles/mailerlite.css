@@ -58,7 +58,7 @@ label.checkbox div.label-description a {
 @media (max-width: 900px) {
   label.checkbox div.label-description {
     font-size: 11px;
-    padding-left: 8px;
+    padding: 2px 0 0 8px;
   }
 }
 

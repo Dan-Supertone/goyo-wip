@@ -797,8 +797,9 @@ section.sdk-n-contact article div.sdk {
   margin-bottom: 120px;
 }
 section.sdk-n-contact article div.sdk a.button {
-  background: #021BF5;
-  color: #F0F0F0;
+  padding-top: 19px;
+  border: dashed 3px #021BF5;
+  color: #808080;
 }
 section.sdk-n-contact article div.contact a.button {
   background: #66D7C8;
@@ -818,8 +819,12 @@ section.sdk-n-contact article div.contact a.button {
   section.sdk-n-contact article div.sdk {
     margin-bottom: 96px;
   }
+  section.sdk-n-contact article div.sdk a.button {
+    padding-top: 13px;
+  }
   section.sdk-n-contact article div.contact a.button {
     font-size: 20px;
+    padding-top: 17px;
   }
 }
 

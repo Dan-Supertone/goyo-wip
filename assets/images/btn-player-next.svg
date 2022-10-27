@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" viewBox="0 0 23.18 30.45" style="enable-background:new 0 0 23.18 30.45;" xml:space="preserve">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 23.18 30.45" style="enable-background:new 0 0 23.18 30.45;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#F0F0F0;}
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:#F0F0F0;}
 </style>
-<g id="그룹_5349" transform="translate(2.592 1.223)">
-	<g id="그룹_5091" transform="translate(0 0)">
-		<g id="패스_8102">
-			<polygon class="st0" points="-0.86,-1.22 20.59,14 -0.86,29.22 -2.59,26.78 15.41,14 -2.59,1.22 			"/>
+<g id="레이어_1" class="st0">
+	<g id="그룹_5349" transform="translate(2.592 1.223)" class="st1">
+		<g id="그룹_5091" transform="translate(0 0)">
+			<g id="패스_8102">
+				<polygon class="st2" points="-0.86,-1.22 20.59,14 -0.86,29.22 -2.59,26.78 15.41,14 -2.59,1.22 				"/>
+			</g>
 		</g>
+	</g>
+</g>
+<g id="레이어_2">
+	<g>
+		<polygon class="st2" points="3.2,30.37 0.16,26.4 14.79,15.22 0.18,4.05 3.22,0.08 23.02,15.22 		"/>
 	</g>
 </g>
 </svg>
