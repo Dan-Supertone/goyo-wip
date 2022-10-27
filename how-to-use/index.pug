@@ -1,0 +1,106 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='description' content='')
+    title GOYO Voice Separator | De-noise, De-Reverb, De-Voice - All in One Plugin
+    link(rel='apple-touch-icon', sizes='57x57', href='../assets/images/favicon/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../assets/images/favicon/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../assets/images/favicon/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../assets/images/favicon/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../assets/images/favicon/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../assets/images/favicon/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../assets/images/favicon/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../assets/images/favicon/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../assets/images/favicon/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='../assets/images/favicon/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../assets/images/favicon/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../assets/images/favicon/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../assets/images/favicon/favicon-16x16.png')
+    link(rel='stylesheet' href='../assets/styles/common.css')
+    link(rel='stylesheet' href='//use.typekit.net/ynw5mlv.css')
+
+  body
+    // Header
+    include ../assets/static/header.pug
+
+    // License Agreement
+    section.document.how-to-use
+      article
+        div.page-title
+          h1 HOW TO USE
+
+        div.content
+          p GOYO Voice Separator is an audio plugin that separates your audio into three channels (Ambience, Voice Dry, Voice Wet), giving you full control over the balance between your voice and all the rest.
+
+          p.divider
+
+          h3 Global Controls
+          h4 Bypass Mode
+          p Bypass mode lets you toggle between your original incoming audio signal and the audio signal processed by GOYO.
+          h4 Mono/Stereo Modes
+          p Mono Mode processes the left and right channels of the incoming audio together and outputs a mono signal.
+          p Stereo Mode processes the left and right channels of the incoming audio separately and outputs a stereo signal.
+          p Depending on the nature of the audio you are working with, Mono Mode may result in a more natural sounding voice, while Stereo Mode may be better at preserving the spatiality of the audio.
+          p.bold Stereo Mode uses substantially more CPU resources than Mono Mode.
+          h4 Undo/Redo
+          p The Undo/Redo buttons lets you revert or recover your latest edits to various controls.
+          h4 Plugin Menu
+          p Check the <span class="bold">Plugin Menu</span> section below for more info.
+
+          p.divider
+
+          h3 Channel Controls
+          p Each Channel (Ambience, Voice Dry, Voice Wet) is supplied with channel-specific controls.
+          h4 Solo Button
+          p <span class="bold">Solo Mode</span> allows you to listen to a specific channel. (Solo multiple channels with Cmd/Ctrl + Click)
+          h4 Mute Button
+          p <span class="bold">Mute Mode</span> mutes the audio on a specific channel.
+          h4 Gain Knob
+          p The <span class="bold">Gain Knob</span> is used to set the gain for a specific channel. Gain values range from -60dB (-inf dB) to +12dB.
+          h4 Gain Indicator
+          p The <span class="bold">Gain Indicator</span> shows the current gain value for a specific channel. Double-click to enter a value directly.
+          h4 FFT Graph
+          p A Traditional <span class="bold">FFT Graph</span> for each specific channel.
+          h4 Clip Indication
+          p When the audio signal for a specific channel is clipping, the FFT Graph and Gain Knob will flash in red color.
+
+          p.divider
+
+          h3 Plugin Menu
+          h4 Version
+          p Check the current version of GOYO.
+          h4 Update Notification
+          p When there is a newer version of GOYO, a link to download the updated installer will appear.
+          h4 How to Use
+          p <span class="bold">How to Use</span> links you to our user guide
+          h4 Send Feedback
+          p <span class="bold">Send Feedback</span> links you to our feedback submission page.
+
+          p.divider
+
+          h3 Tech Specs
+          h4 Plugin Formats
+          p AU, VST3, VST
+          h4 OS
+          p macOS 10.15 and above
+          p Windows 10 and above
+          h4 CPU
+          p Mac: Intel Core i5 / i7 / i9 / Xeon W 2013 and up / Apple M1 (via Rosetta 2)
+          p Windows: Intel Core i5, i7, i9 (all Gen 6 and above)
+          h4 Memory
+          p Minimum: 8 GB RAM (16 GB recommended)
+          p 16 GB free disk space on the system drive
+          h4 DAW
+          p Major DAWs including Ableton Live, Logic Pro, Cubase, and OBS Studio
+          h4 Sample Rate
+          p 44100Hz, 48000Hz, 96000Hz
+          h4 Buffer Size
+          p We recommend that you use a buffer size of 256 and above.
+
+    // Footer
+    include ../assets/static/footer.pug
+
+  script.

@@ -921,6 +921,12 @@ section.document article div.content h3 {
   font-weight: 500;
   margin: 48px 0 22px 0;
 }
+section.document article div.content h4 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 28px 0 16px 0;
+  color: #FF4C01;
+}
 section.document article div.content ul li {
   list-style-type: disc;
   margin-left: 13px;
@@ -959,6 +965,10 @@ section.document article div.content a {
     font-size: 19px;
     line-height: 1.1;
     margin-bottom: 20px;
+  }
+  section.document article div.content h4 {
+    font-size: 16px;
+    margin: 24px 0 12px 0;
   }
   section.document article div.content p, section.document article div.content li {
     margin-bottom: 14px;
