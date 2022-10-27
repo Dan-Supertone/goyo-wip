@@ -38,7 +38,9 @@
         </article>
       </div>
       <div class="header-wrap"><a class="logo-goyo" href="./" target="_self"><img src="./assets/images/logo-goyo-small-blue.svg" alt=""></a>
-        <div><a class="how-to-use" href="" target="_self">HOW TO USE</a><a class="updates" href="" target="_self">UPDATES</a><a class="get-goyo button" href="./index.html#beta" target="">GET GOYO</a></div>
+        <div><a class="how-to-use" href="" target="_self">HOW TO USE</a>
+          <!-- a.updates(href='' target='_self') UPDATES--><a class="get-goyo button" href="./index.html#beta" target="">GET GOYO</a>
+        </div>
       </div>
     </header>
     <!-- Script-->
@@ -65,14 +67,14 @@
         </div>
         <div class="how-player">
           <div class="player-play">
-            <div id="btn-play">켜라</div>
-            <div class="hidden" id="btn-pause">꺼라</div>
+            <div id="btn-play"><img src="./assets/images/btn-player-play.svg"></div>
+            <div class="hidden" id="btn-pause"><img src="./assets/images/btn-player-pause.svg"></div>
           </div>
           <div class="player-nav">
             <div class="player-nav-inner">
               <div id="current-source">SUBWAY STATION</div>
-              <div id="btn-prev"> </div>
-              <div id="btn-next"> </div>
+              <div id="btn-prev"><img src="./assets/images/btn-player-prev.svg"></div>
+              <div id="btn-next"><img src="./assets/images/btn-player-next.svg"></div>
             </div>
             <div id="progress-bar"></div>
           </div>
@@ -104,7 +106,12 @@
     </section>
     <!-- Banner-->
     <section class="banner" id="banner">
-      <article></article>
+      <section id="banner-graphic-separation">
+        <article><img class="graphic-separation" src="./assets/images/graphic-separation.png"></article>
+      </section>
+      <article><img class="logo" src="./assets/images/logo-goyo-b.svg">
+        <p class="logo-sub">All in One Plugin</p><img class="spectrum" src="./assets/images/graphic-spectrum.png"><img class="logo-powered" src="./assets/images/logo-poweredby-supertone.svg">
+      </article>
       <div class="bg front" id="background"></div>
       <div class="bg back"></div>
     </section>
@@ -128,7 +135,7 @@
           <div class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-1277888" id="mlb2-1277888">
             <form class="ml-block-form row-form" action="https://assets.mailerlite.com/jsonp/137163/forms/64843396393469561/subscribe" data-code="" method="post" target="_blank">
               <div class="mail-input ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                <input class="form-control" aria-label="email" aria-required="true" type="email" data-inputmask="" name="fields[email]" placeholder="Email" autocomplete="email">
+                <input class="form-control" aria-label="email" aria-required="true" type="email" data-inputmask="" name="fields[email]" placeholder="Email Address" autocomplete="email">
               </div>
               <div class="ml-form-checkboxRow ml-validate-required">
                 <label class="checkbox">
@@ -143,7 +150,7 @@
               <div class="ml-form-embedSubmit">
                 <button class="primary" type="submit">GET GOYO</button>
                 <button class="loading" disabled="disabled" style="display: none;" type="button">
-                  <div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span>
+                  <div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading</span>
                 </button>
               </div>
               <input type="hidden" name="anticsrf" value="true">
@@ -177,13 +184,17 @@
       <article>
         <div class="sdk">
           <h1>SDK</h1>
-          <p>GOYO is available in SDK form.<br>Let us know if you are interested!</p><a class="button">SDK DOCUMENTATION</a>
+          <p>GOYO is available in SDK form.<br>Let us know if you are interested!</p><a class="button">COMING SOON</a>
         </div>
         <div class="contact">
           <h1>CONTACT</h1>
-          <p>For all inquiries regarding GOYO,<br>please contact support@goyo.app</p><a class="button" href="mailto:support@goyo.app">SUPPORT@GOYO.APP</a>
+          <p>For all inquiries regarding GOYO,<br>please contact support@goyo.app</p><a class="button" href="mailto:support@goyo.app">support@goyo.app</a>
         </div>
       </article>
+    </section>
+    <!-- Supertone-->
+    <section class="supertone">
+      <article><img src="./assets/images/logo-poweredby-supertone-2.svg"><a class="button" href="//supertone.ai" target="_blank">VISIT</a></article>
     </section>
     <!-- Footer-->
     <!-- include assets/static/footer.pug-->
@@ -204,9 +215,10 @@
     });
     
     // Banner
-    let banner, bannerHeight, background, posFromTop, winH, transPercent;
+    let banner, bannerHeight, background, graphic, posFromTop, winH, transPercent;
     banner = document.getElementById('banner');
     background = document.getElementById('background');
+    graphic = document.getElementById('banner-graphic-separation');
     
     window.addEventListener('scroll', function() {
       bannerHeight = banner.clientHeight;
@@ -215,6 +227,7 @@
       if (posFromTop < winH) {
         transPercent = (winH - posFromTop) * 100 / bannerHeight;
         background.style.width = transPercent + '%';
+        // graphic.style.width = (100 - transPercent) + '%';
       };
     });
   </script>

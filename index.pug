@@ -41,7 +41,7 @@ html
           img(src='./assets/images/logo-goyo-small-blue.svg' alt='')
         div
           a.how-to-use(href='' target='_self') HOW TO USE
-          a.updates(href='' target='_self') UPDATES
+          // a.updates(href='' target='_self') UPDATES
           a.get-goyo.button(href='./index.html#beta' target='') GET GOYO
 
     // Script
@@ -73,13 +73,17 @@ html
 
         div.how-player
           div.player-play
-            div#btn-play 켜라
-            div#btn-pause.hidden 꺼라
+            div#btn-play
+              img(src='./assets/images/btn-player-play.svg')
+            div#btn-pause.hidden
+              img(src='./assets/images/btn-player-pause.svg')
           div.player-nav
             div.player-nav-inner
               div#current-source SUBWAY STATION
-              div#btn-prev 
-              div#btn-next 
+              div#btn-prev
+                img(src='./assets/images/btn-player-prev.svg')
+              div#btn-next
+                img(src='./assets/images/btn-player-next.svg')
             div#progress-bar
 
         div.how-track-wrap
@@ -101,7 +105,14 @@ html
 
     // Banner
     section#banner.banner
+      section#banner-graphic-separation
+        article
+          img.graphic-separation(src='./assets/images/graphic-separation.png')
       article
+        img.logo(src='./assets/images/logo-goyo-b.svg')
+        p.logo-sub All in One Plugin
+        img.spectrum(src='./assets/images/graphic-spectrum.png')
+        img.logo-powered(src='./assets/images/logo-poweredby-supertone.svg')
       div#background.bg.front
       div.bg.back
 
@@ -119,11 +130,17 @@ html
         div.sdk
           h1 SDK
           p GOYO is available in SDK form.<br>Let us know if you are interested!
-          a.button SDK DOCUMENTATION
+          a.button COMING SOON
         div.contact
           h1 CONTACT
           p For all inquiries regarding GOYO,<br>please contact support@goyo.app
-          a.button(href='mailto:support@goyo.app') SUPPORT@GOYO.APP
+          a.button(href='mailto:support@goyo.app') support@goyo.app
+
+    // Supertone
+    section.supertone
+      article
+        img(src='./assets/images/logo-poweredby-supertone-2.svg')
+        a.button(href='//supertone.ai' target='_blank') VISIT
 
     // Footer
     // include assets/static/footer.pug
@@ -144,9 +161,10 @@ html
     });
 
     // Banner
-    let banner, bannerHeight, background, posFromTop, winH, transPercent;
+    let banner, bannerHeight, background, graphic, posFromTop, winH, transPercent;
     banner = document.getElementById('banner');
     background = document.getElementById('background');
+    graphic = document.getElementById('banner-graphic-separation');
 
     window.addEventListener('scroll', function() {
       bannerHeight = banner.clientHeight;
@@ -155,5 +173,6 @@ html
       if (posFromTop < winH) {
         transPercent = (winH - posFromTop) * 100 / bannerHeight;
         background.style.width = transPercent + '%';
+        // graphic.style.width = (100 - transPercent) + '%';
       };
     });
