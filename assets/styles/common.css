@@ -247,7 +247,7 @@ header div.header-wrap div.nav-mobile {
     height: 32px;
     border-radius: 12px;
     background: #021BF5;
-    padding: 6px;
+    padding: 7px;
   }
   header div.header-wrap div.nav-mobile a.get-goyo img {
     width: 100%;
@@ -1003,4 +1003,8 @@ section.document article div.content a {
   section.document article div.content p.divider {
     margin: 22px 0;
   }
+}
+
+section.send-feedback article {
+  padding-top: 158px;
 }
