@@ -35,11 +35,14 @@ label.checkbox
       width: 24px
       height: 24px
       border: solid 2px #E4E4E4
+      cursor: pointer
       @include mobile
         width: 18px
         height: 18px
     &:checked + label
-      background: $blue
+      background: url('../../assets/images/input-mailerlite-checkbox.svg')
+      background-size: cover
+      background-position: center
   div.label-description
     font-size: 17px
     color: #E4E4E4

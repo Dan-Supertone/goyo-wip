@@ -45,6 +45,7 @@ label.checkbox input#mail-checkbox + label {
   width: 24px;
   height: 24px;
   border: solid 2px #E4E4E4;
+  cursor: pointer;
 }
 @media (max-width: 900px) {
   label.checkbox input#mail-checkbox + label {
@@ -53,7 +54,9 @@ label.checkbox input#mail-checkbox + label {
   }
 }
 label.checkbox input#mail-checkbox:checked + label {
-  background: #021BF5;
+  background: url("../../assets/images/input-mailerlite-checkbox.svg");
+  background-size: cover;
+  background-position: center;
 }
 label.checkbox div.label-description {
   font-size: 17px;
