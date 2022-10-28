@@ -966,6 +966,7 @@ section.sdk-n-contact article div.sdk a.button {
   padding-top: 19px;
   border: solid 3px #021BF5;
   color: #808080;
+  cursor: default;
 }
 section.sdk-n-contact article div.contact a.button {
   background: #66D7C8;
