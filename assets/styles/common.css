@@ -1113,6 +1113,7 @@ section.how-to-use article div.content p.divider {
 }
 section.how-to-use article div.content img {
   max-width: 100%;
+  margin: 0 auto;
 }
 section.how-to-use article div.content img.plugin {
   width: 500px;
@@ -1123,7 +1124,7 @@ section.how-to-use article div.content img.detail-1 {
   margin-bottom: 34px;
 }
 section.how-to-use article div.content img.detail-2 {
-  width: 150px;
+  width: 180px;
   margin-top: -4px;
   margin-bottom: 48px;
 }
@@ -1142,7 +1143,7 @@ section.how-to-use article div.content img.detail-3 {
     width: 260px;
   }
   section.how-to-use article div.content img.detail-2 {
-    width: 110px;
+    width: 140px;
     margin-top: -2px;
   }
   section.how-to-use article div.content img.detail-3 {
