@@ -896,6 +896,12 @@ section.banner div.bg.back {
 }
 section.banner #background {
   width: 0;
+  margin-left: calc(-40% + 400px);
+}
+@media (max-width: 900px) {
+  section.banner #background {
+    margin-left: calc(-60% - 200px);
+  }
 }
 
 section.beta {

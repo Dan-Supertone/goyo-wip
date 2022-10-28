@@ -177,7 +177,7 @@ html
     });
 
     // Banner
-    let banner, bannerHeight, background, /*graphic,*/ posFromTop, winH, transPercent;
+    let banner, bannerHeight, background, posFromTop, winH, transPercent;
     banner = document.getElementById('banner');
     background = document.getElementById('background');
     graphic = document.getElementById('banner-graphic-separation');
@@ -187,8 +187,12 @@ html
       posFromTop = banner.getBoundingClientRect().top;
       winH = window.innerHeight;
       if (posFromTop < winH) {
-        transPercent = (winH - posFromTop) * 100 / bannerHeight;
-        background.style.width = transPercent + '%';
-        // graphic.style.width = (100 - transPercent) + '%';
+        if (window = innerWidth > 900) {
+          transPercent = (winH - posFromTop) * 100 / bannerHeight;
+          background.style.width = 'calc(' + transPercent * 1.75 + '% - 400px';
+        } else {
+          transPercent = (winH - posFromTop) * 100 / bannerHeight;
+          background.style.width = 'calc(' + transPercent * 1.4 + '% + 200px)';
+        };
       };
     });
