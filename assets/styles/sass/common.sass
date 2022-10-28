@@ -277,6 +277,32 @@ section.main
     a.get-goyo.button
       color: $white
       background: $blue
+
+  div.main-bg
+    z-index: -1
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    overflow: hidden
+    img.main-bg-inner
+      position: absolute
+      top: 230px
+      left: calc(50% - 840px)
+      width: auto
+      height: 940px
+    @include mobile
+      img.main-bg-inner
+        top: 296px
+        left: calc(50% - 410px)
+        height: 424px
+    @include mobile-wide
+      img.main-bg-inner
+        top: 296px
+        left: calc(50% - 580px)
+        height: 600px
+
   @include mobile
     article
       padding-top: 148px

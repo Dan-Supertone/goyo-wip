@@ -9,6 +9,10 @@ $mint: #66D7C8
   @media (max-width: 900px)
     @content
 
+@mixin mobile-wide
+  @media (min-width: 640px) and (max-width: 900px)
+    @content
+
 @mixin desktop
   @media (min-width: 901px)
     @content
