@@ -777,6 +777,47 @@ section.document
         p.divider
           margin: 22px 0
 
+// Page: How to Use
+section.how-to-use
+  article
+    div.content
+      h3
+        font-size: 28px
+        //text-align: center
+        margin-bottom: 32px
+      p.divider
+        margin-top: 54px
+      img
+        max-width: 100%
+        &.plugin
+          width: 500px
+          margin: 0 auto 48px auto
+        &.detail-1
+          width: 360px
+          margin-bottom: 34px
+        &.detail-2
+          width: 150px
+          margin-top: -4px
+          margin-bottom: 48px
+        &.detail-3
+          width: 240px
+          margin-bottom: 34px
+    @include mobile
+      div.content
+        h3
+          font-size: 24px
+        p.divider
+          margin-top: 48px
+        img
+          &.plugin
+          &.detail-1
+            width: 260px
+          &.detail-2
+            width: 110px
+            margin-top: -2px
+          &.detail-3
+            width: 160px
+
 // Page: Send Feedback
 section.send-feedback
   article

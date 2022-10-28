@@ -1104,6 +1104,52 @@ section.document article div.content a {
   }
 }
 
+section.how-to-use article div.content h3 {
+  font-size: 28px;
+  margin-bottom: 32px;
+}
+section.how-to-use article div.content p.divider {
+  margin-top: 54px;
+}
+section.how-to-use article div.content img {
+  max-width: 100%;
+}
+section.how-to-use article div.content img.plugin {
+  width: 500px;
+  margin: 0 auto 48px auto;
+}
+section.how-to-use article div.content img.detail-1 {
+  width: 360px;
+  margin-bottom: 34px;
+}
+section.how-to-use article div.content img.detail-2 {
+  width: 150px;
+  margin-top: -4px;
+  margin-bottom: 48px;
+}
+section.how-to-use article div.content img.detail-3 {
+  width: 240px;
+  margin-bottom: 34px;
+}
+@media (max-width: 900px) {
+  section.how-to-use article div.content h3 {
+    font-size: 24px;
+  }
+  section.how-to-use article div.content p.divider {
+    margin-top: 48px;
+  }
+  section.how-to-use article div.content img.detail-1 {
+    width: 260px;
+  }
+  section.how-to-use article div.content img.detail-2 {
+    width: 110px;
+    margin-top: -2px;
+  }
+  section.how-to-use article div.content img.detail-3 {
+    width: 160px;
+  }
+}
+
 section.send-feedback article {
   padding-top: 158px;
 }
