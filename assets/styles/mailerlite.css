@@ -117,3 +117,12 @@ div.ml-form-successBody h4 {
 div.ml-form-successBody p {
   font-size: 13px;
 }
+@media (max-width: 900px) {
+  div.ml-form-successBody h4 {
+    font-size: 15px;
+    margin-top: 14px;
+  }
+  div.ml-form-successBody p {
+    font-size: 10px;
+  }
+}
