@@ -292,6 +292,17 @@ section.main
       left: calc(50% - 840px)
       width: auto
       height: 940px
+      &:nth-child(1)
+        @include desktop
+          animation: main-p-t 2s ease 1s forwards
+        @include mobile
+          animation: main-m-t 2s ease 1s forwards
+      &:nth-child(3)
+        z-index: -2
+        @include desktop
+          animation: main-p-b 2s ease 1s forwards
+        @include mobile
+          animation: main-m-b 2s ease 1s forwards
     @include mobile
       img.main-bg-inner
         top: 296px
@@ -329,6 +340,11 @@ section.main
       a.get-goyo.button
         width: 200px
         margin-bottom: 32px
+
+@include keyframe (main-p-t, -50px)
+@include keyframe (main-p-b, 50px)
+@include keyframe (main-m-t, -20px)
+@include keyframe (main-m-b, 20px)
 
 // Section: How Goyo Works
 section.how-goyo-works
