@@ -215,6 +215,9 @@ header div.header-wrap div a.button {
   color: #F0F0F0;
   background: #021BF5;
 }
+header div.header-wrap div.nav-mobile {
+  display: none;
+}
 @media (max-width: 900px) {
   header div.notification {
     height: 62px;
@@ -224,6 +227,30 @@ header div.header-wrap div a.button {
   }
   header div.header-wrap div {
     display: none;
+  }
+  header div.header-wrap div.nav-mobile {
+    display: flex;
+    flex-flow: row nowrap;
+    position: absolute;
+    top: 22px;
+    right: 22px;
+  }
+  header div.header-wrap div.nav-mobile a {
+    font-size: 16px;
+    margin: 0;
+  }
+  header div.header-wrap div.nav-mobile a.how-to-use {
+    margin: 7px 14px 0 0;
+  }
+  header div.header-wrap div.nav-mobile a.get-goyo {
+    width: 32px;
+    height: 32px;
+    border-radius: 12px;
+    background: #021BF5;
+    padding: 6px;
+  }
+  header div.header-wrap div.nav-mobile a.get-goyo img {
+    width: 100%;
   }
 }
 

@@ -147,6 +147,8 @@ header
         border-radius: 19px
         color: $white
         background: $blue
+    div.nav-mobile
+      display: none
 
   @include mobile
     div.notification
@@ -156,6 +158,24 @@ header
         height: 28px
       div
         display: none
+      div.nav-mobile
+        @include flex-row
+        position: absolute
+        top: 22px
+        right: 22px
+        a
+          font-size: 16px
+          margin: 0
+        a.how-to-use
+          margin: 7px 14px 0 0
+        a.get-goyo
+          width: 32px
+          height: 32px
+          border-radius: 12px
+          background: $blue
+          padding: 6px
+          img
+            width: 100%
 
 // Footer
 // Footer
