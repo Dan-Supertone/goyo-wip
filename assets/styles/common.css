@@ -975,11 +975,11 @@ section.sdk-n-contact article div.contact a.button {
     padding: 78px 0 110px 0;
   }
   section.sdk-n-contact article div h1 {
-    font-size: 42px;
+    font-size: 36px;
     margin-bottom: 10px;
   }
   section.sdk-n-contact article div p {
-    font-size: 15px;
+    font-size: 14px;
     margin-bottom: 24px;
   }
   section.sdk-n-contact article div.sdk {
@@ -1015,7 +1015,7 @@ section.supertone article a.button {
     padding: 68px 0 90px 0;
   }
   section.supertone article img {
-    width: 252px;
+    width: 200px;
     margin-bottom: 45px;
   }
 }
